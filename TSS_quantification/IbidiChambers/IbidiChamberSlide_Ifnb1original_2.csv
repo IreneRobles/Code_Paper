@@ -1,0 +1,9 @@
+﻿Well,Genotype,Rep,Timepoint,Probe (type),Set,Name
+U 0_V 0 (1),WT,2,0,Ifnb1(4),Ifnb1_original,WT_0_2
+U 0_V 1 (1),Rad21KO,2,0,Ifnb1(4),Ifnb1_original,Rad21KO_0_2
+U 1_V 0 (1),WT,2,30,Ifnb1(4),Ifnb1_original,WT_30_2
+U 1_V 1 (1),Rad21KO,2,30,Ifnb1(4),Ifnb1_original,Rad21KO_30_2
+U 2_V 0 (1),WT,2,60,Ifnb1(4),Ifnb1_original,WT_60_2
+U 2_V 1 (1),Rad21KO,2,60,Ifnb1(4),Ifnb1_original,Rad21KO_60_2
+U 3_V 0 (1),WT,2,90,Ifnb1(4),Ifnb1_original,WT_90_2
+U 3_V 1 (1),Rad21KO,2,90,Ifnb1(4),Ifnb1_original,Rad21KO_90_2

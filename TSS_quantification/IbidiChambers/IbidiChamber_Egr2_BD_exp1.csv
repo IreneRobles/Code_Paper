@@ -1,0 +1,9 @@
+﻿Well,Genotype,Rep,Timepoint,Probe (type),Set,Name
+U 0_V 0 (1),WT,1,DMSO,"Egr2_intron(1),Egr2_Enh(6)",Egr2_BD,WT_DMSO_1
+U 0_V 1 (1),Rad21KO,1,DMSO,"Egr2_intron(1),Egr2_Enh(6)",Egr2_BD,Rad21KO_DMSO_1
+U 1_V 0 (1),WT,1,DMSO-LPS,"Egr2_intron(1),Egr2_Enh(6)",Egr2_BD,WT_DMSO-LPS_1
+U 1_V 1 (1),Rad21KO,1,DMSO-LPS,"Egr2_intron(1),Egr2_Enh(6)",Egr2_BD,Rad21KO_DMSO-LPS_1
+U 2_V 0 (1),WT,1,BD1-LPS,"Egr2_intron(1),Egr2_Enh(6)",Egr2_BD,WT_BD1-LPS_1
+U 2_V 1 (1),Rad21KO,1,BD1-LPS,"Egr2_intron(1),Egr2_Enh(6)",Egr2_BD,Rad21KO_BD1-LPS_1
+U 3_V 0 (1),WT,1,BD2-LPS,"Egr2_intron(1),Egr2_Enh(6)",Egr2_BD,WT_BD2-LPS_1
+U 3_V 1 (1),Rad21KO,1,BD2-LPS,"Egr2_intron(1),Egr2_Enh(6)",Egr2_BD,Rad21KO_BD2-LPS_1

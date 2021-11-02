@@ -1,0 +1,9 @@
+﻿Well,Genotype,Rep,Timepoint,Probe (type),Set,Name
+U 0_V 0 (1),WT,1,0,"Il12b_intron(4),Il12b(6)",Il12b_original,WT_0_1
+U 0_V 1 (1),Rad21KO,1,0,"Il12b_intron(4),Il12b(6)",Il12b_original,Rad21KO_0_1
+U 1_V 0 (1),WT,1,60,"Il12b_intron(4),Il12b(6)",Il12b_original,WT_60_1
+U 1_V 1 (1),Rad21KO,1,60,"Il12b_intron(6),Il12b(6)",Il12b_original,Rad21KO_60_1
+U 2_V 0 (1),WT,1,90,"Il12b_intron(4),Il12b(6)",Il12b_original,WT_90_1
+U 2_V 1 (1),Rad21KO,1,90,"Il12b_intron(4),Il12b(6)",Il12b_original,Rad21KO_90_1
+U 3_V 0 (1),WT,1,120,"Il12b_intron(4),Il12b(6)",Il12b_original,WT_120_1
+U 3_V 1 (1),Rad21KO,1,120,"Il12b_intron(4),Il12b(6)",Il12b_original,Rad21KO_120_1

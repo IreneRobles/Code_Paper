@@ -1,0 +1,7 @@
+﻿Well,Cells,Treatment,Probe (type),Name
+U 1_V 0 (1),Mix,UT,"Ifit1(1), Mx1(6)",Mix_UT
+U 1_V 1 (1),Mix,3H,"Ifit1(1), Mx1(6)",Mix_3H
+U 2_V 0 (1),WT,UT,"Ifit1(1), Mx1(6)",WT_UT
+U 2_V 1 (1),WT,3H,"Ifit1(1), Mx1(6)",WT_3H
+U 3_V 0 (1),Rad21KO,UT,"Ifit1(1), Mx1(6)",Rad21KO_UT
+U 3_V 1 (1),Rad21KO,3H,"Ifit1(1), Mx1(6)",Rad21KO_3H

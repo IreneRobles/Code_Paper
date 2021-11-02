@@ -1,0 +1,9 @@
+﻿Well,Genotype,Rep,Timepoint,Probe (type),Set,Name,DidLiquidRunOut?
+U 0_V 0 (1),WT,3,0,"Il12b_intron1(4),HSS1(1)",Il12b,WT_3_0__Il12b,No
+U 0_V 1 (1),Rad21KO,3,0,"Il12b_intron1(4),HSS1(1)",Il12b,Rad21KO_3_0__Il12b,No
+U 1_V 0 (1),WT,3,90,"Il12b_intron1(4),HSS1(1)",Il12b,WT_3_90__Il12b,No
+U 1_V 1 (1),Rad21KO,3,90,"Il12b_intron1(4),HSS1(1)",Il12b,Rad21KO_3_90__Il12b,No
+U 2_V 0 (1),WT,4,0,"Il12b_intron1(4),HSS1(1)",Il12b,WT_4_0__Il12b,No
+U 2_V 1 (1),Rad21KO,4,0,"Il12b_intron1(4),HSS1(1)",Il12b,Rad21KO_4_0__Il12b,No
+U 3_V 0 (1),WT,4,90,"Il12b_intron1(4),HSS1(1)",Il12b,WT_4_90__Il12b,No
+U 3_V 1 (1),Rad21KO,4,90,"Il12b_intron1(4),HSS1(1)",Il12b,Rad21KO_4_90__Il12b,No

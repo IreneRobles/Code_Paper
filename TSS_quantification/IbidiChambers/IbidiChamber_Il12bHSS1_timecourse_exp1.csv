@@ -1,0 +1,9 @@
+﻿Well,Genotype,Rep,Timepoint,Probe (type),Set,Name
+U 0_V 0 (1),WT,1,0,"Il12b_intron(4),HSS1(1)",Il12b_HSS1_timecourse,WT_0_1
+U 0_V 1 (1),WT,2,0,"Il12b_intron(4),HSS1(1)",Il12b_HSS1_timecourse,WT_0_2
+U 1_V 0 (1),WT,1,60,"Il12b_intron(4),HSS1(1)",Il12b_HSS1_timecourse,WT_60_1
+U 1_V 1 (1),WT,2,60,"Il12b_intron(4),HSS1(1)",Il12b_HSS1_timecourse,WT_60_2
+U 2_V 0 (1),WT,1,90,"Il12b_intron(4),HSS1(1)",Il12b_HSS1_timecourse,WT_90_1
+U 2_V 1 (1),WT,2,90,"Il12b_intron(4),HSS1(1)",Il12b_HSS1_timecourse,WT_90_2
+U 3_V 0 (1),WT,1,120,"Il12b_intron(4),HSS1(1)",Il12b_HSS1_timecourse,WT_120_1
+U 3_V 1 (1),WT,2,120,"Il12b_intron(4),HSS1(1)",Il12b_HSS1_timecourse,WT_120_2

@@ -1,0 +1,9 @@
+Well,Cells,Treatment,Probe (type),Name
+U 0_V 0 (1),WT,UT,"Peli1_ex(1), Sertad2_ex(6), Spred2_ex(4)",WT_UT_exons
+U 0_V 1 (1),Rad21KO,UT,"Peli1_ex(1), Sertad2_ex(6), Spred2_ex(4)",Rad21KO_UT_exons
+U 1_V 0 (1),WT,2H,"Peli1_ex(1), Sertad2_ex(6), Spred2_ex(4)",WT_2H_exons
+U 1_V 1 (1),Rad21KO,2H,"Peli1_ex(1), Sertad2_ex(6), Spred2_ex(4)",Rad21KO_2H_exons
+U 2_V 0 (1),WT,UT,"Peli1_in(4), Sertad2_in(1), Spred2_in(6)",WT_UT_introns
+U 2_V 1 (1),Rad21KO,UT,"Peli1_in(4), Sertad2_in(1), Spred2_in(6)",Rad21KO_UT_introns
+U 3_V 0 (1),WT,2H,"Peli1_in(4), Sertad2_in(1), Spred2_in(6)",WT_2H_introns
+U 3_V 1 (1),Rad21KO,2H,"Peli1_in(4), Sertad2_in(1), Spred2_in(6)",Rad21KO_2H_introns

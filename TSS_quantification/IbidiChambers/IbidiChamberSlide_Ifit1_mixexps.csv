@@ -1,0 +1,7 @@
+Well,Cells,Timepoint,Probe (type),Name
+U 1_V 0 (1),Rad21KO+WT,0,"Ifit1(1), Mx1(6)",Rad21KO+WT_0
+U 1_V 1 (1),Rad21KO+WT,180,"Ifit1(1), Mx1(6)",Rad21KO+WT_180
+U 2_V 0 (1),WT,0,"Ifit1(1), Mx1(6)",WT_0
+U 2_V 1 (1),WT,180,"Ifit1(1), Mx1(6)",WT_180
+U 3_V 0 (1),Rad21KO,0,"Ifit1(1), Mx1(6)",Rad21KO_0
+U 3_V 1 (1),Rad21KO,180,"Ifit1(1), Mx1(6)",Rad21KO_180

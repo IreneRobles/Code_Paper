@@ -1,0 +1,17 @@
+﻿Well,Genotype,Timepoint,Probe (type),Set,Name
+U 0_V 0 (1),WT,0,"Sertad2_intron2(4), Sertad2_intron1(1), Sertad2_exons(6)",Sertad2,WT_0__Sertad2
+U 0_V 1  (1),Rad21KO,0,"Sertad2_intron2(4), Sertad2_intron1(1), Sertad2_exons(6)",Sertad2,Rad21KO_0__Sertad2
+U 1_V 0 (1),WT,90,"Sertad2_intron2(4), Sertad2_intron1(1), Sertad2_exons(6)",Sertad2,WT_90__Sertad2
+U 1_V 1 (1),Rad21KO,90,"Sertad2_intron2(4), Sertad2_intron1(1), Sertad2_exons(6)",Sertad2,Rad21KO_90__Sertad2
+U 2_V 0 (1),WT,0,"Spred2_exons(4), Spred2_intron2(1), Spred2_intron1(6)",Spred2,WT_0__Spred2
+U 2_V 1 (1),Rad21KO,0,"Spred2_exons(4), Spred2_intron2(1), Spred2_intron1(6)",Spred2,Rad21KO_0__Spred2
+U 3_V 0 (1),WT,90,"Spred2_exons(4), Spred2_intron2(1), Spred2_intron1(6)",Spred2,WT_90__Spred2
+U 3_V 1 (1),Rad21KO,90,"Spred2_exons(4), Spred2_intron2(1), Spred2_intron1(6)",Spred2,Rad21KO_90__Spred2
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,
+,,,,,

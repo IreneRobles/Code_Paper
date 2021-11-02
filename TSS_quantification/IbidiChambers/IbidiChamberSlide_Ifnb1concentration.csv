@@ -1,0 +1,9 @@
+Well,Genotype,Timepoint,Probe (type),LPS_nguL,Name
+U 0_V 0 (1),WT,0,"Ifnb1(4), Ifit1(1), Enh(6)",0,WT_0__0
+U 0_V 1 (1),Rad21KO,0,"Ifnb1(4), Ifit1(1), Enh(6)",0,Rad21KO_0__0
+U 1_V 0 (1),WT,120,"Ifnb1(4), Ifit1(1), Enh(6)",10,WT_120__10
+U 1_V 1 (1),Rad21KO,120,"Ifnb1(4), Ifit1(1), Enh(6)",10,Rad21KO_120__10
+U 2_V 0 (1),WT,120,"Ifnb1(4), Ifit1(1), Enh(6)",25,WT_120__25
+U 2_V 1 (1),Rad21KO,120,"Ifnb1(4), Ifit1(1), Enh(6)",25,Rad21KO_120__25
+U 3_V 0 (1),WT,120,"Ifnb1(4), Ifit1(1), Enh(6)",100,WT_120__100
+U 3_V 1 (1),Rad21KO,120,"Ifnb1(4), Ifit1(1), Enh(6)",100,Rad21KO_120__100

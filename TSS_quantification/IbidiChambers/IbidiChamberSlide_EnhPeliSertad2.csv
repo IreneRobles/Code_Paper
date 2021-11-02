@@ -1,0 +1,17 @@
+﻿Well,Genotype,Timepoint,Probe (type),Name,Rep,Sample
+U 0_V 0 (1),WT,0,"Peli1(4), Sertad2(1), Enhancer(4)",WT_0_3,3,WT_0
+U 0_V 1 (1),WT,120,"Peli1(4), Sertad2(1), Enhancer(4)",WT_120_3,3,WT_120
+U 1_V 0 (1),WT,0,"Peli1(4), Sertad2(1), Enhancer(4)",WT_0_4,4,WT_0
+U 1_V 1 (1),WT,120,"Peli1(4), Sertad2(1), Enhancer(4)",WT_120_4,4,WT_120
+U 2_V 0 (1),Rad21KO,0,"Peli1(4), Sertad2(1), Enhancer(4)",Rad21KO_0_3,3,Rad21KO_0
+U 2_V 1 (1),Rad21KO,120,"Peli1(4), Sertad2(1), Enhancer(4)",Rad21KO_120_3,3,Rad21KO_120
+U 3_V 0 (1),Rad21KO,0,"Peli1(4), Sertad2(1), Enhancer(4)",Rad21KO_0_4,4,Rad21KO_0
+U 3_V 1 (1),Rad21KO,120,"Peli1(4), Sertad2(1), Enhancer(4)",Rad21KO_120_4,4,Rad21KO_120
+U 0_V 0 (2),WT,0,"Peli1(4), Sertad2(1), Enhancer(4)",WT_0_3,3,WT_0
+U 0_V 1 (2),WT,120,"Peli1(4), Sertad2(1), Enhancer(4)",WT_120_3,3,WT_120
+U 1_V 0 (2),WT,0,"Peli1(4), Sertad2(1), Enhancer(4)",WT_0_4,4,WT_0
+U 1_V 1 (2),WT,120,"Peli1(4), Sertad2(1), Enhancer(4)",WT_120_4,4,WT_120
+U 2_V 0 (2),Rad21KO,0,"Peli1(4), Sertad2(1), Enhancer(4)",Rad21KO_0_3,3,Rad21KO_0
+U 2_V 1 (2),Rad21KO,120,"Peli1(4), Sertad2(1), Enhancer(4)",Rad21KO_120_3,3,Rad21KO_120
+U 3_V 0 (2),Rad21KO,0,"Peli1(4), Sertad2(1), Enhancer(4)",Rad21KO_0_4,4,Rad21KO_0
+U 3_V 1 (2),Rad21KO,120,"Peli1(4), Sertad2(1), Enhancer(4)",Rad21KO_120_4,4,Rad21KO_120

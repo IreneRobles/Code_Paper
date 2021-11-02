@@ -1,0 +1,9 @@
+﻿Well,Genotype,Rep,Timepoint,Probe (type),Set,Name
+U 0_V 1 (1),WT,2,0,"Peli1_intron(4),Peli1(6)",Peli1_original,WT_0_2
+U 0_V 0 (1),Rad21KO,2,0,"Peli1_intron(4),Peli1(6)",Peli1_original,Rad21KO_0_2
+U 1_V 1 (1),WT,2,45,"Peli1_intron(4),Peli1(6)",Peli1_original,WT_45_2
+U 1_V 0 (1),Rad21KO,2,45,"Peli1_intron(4),Peli1(6)",Peli1_original,Rad21KO_45_2
+U 2_V 1 (1),WT,2,90,"Peli1_intron(4),Peli1(6)",Peli1_original,WT_90_2
+U 2_V 0 (1),Rad21KO,2,90,"Peli1_intron(4),Peli1(6)",Peli1_original,Rad21KO_90_2
+U 3_V 1 (1),WT,2,135,"Peli1_intron(4),Peli1(6)",Peli1_original,WT_135_2
+U 3_V 0 (1),Rad21KO,2,135,"Peli1_intron(4),Peli1(6)",Peli1_original,Rad21KO_135_2
