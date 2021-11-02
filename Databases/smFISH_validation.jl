@@ -8,9 +8,9 @@ using DataFrames
 function smFISHdata(gene)
     GENE = uppercase(gene)
     if in(GENE, ["ACTB", "IL12B", "STAT1"])
-        return CSV.read(smFISH_Data.folder*"/smFISH_validation/actb_stat1_il12b.csv", DataFrames.DataFrame)
+        return CSV.read(smFISH_validation.folder*"/smFISH_validation/actb_stat1_il12b.csv", DataFrames.DataFrame)
     elseif in(GENE, ["ATF3", "TNF", "CD40"])
-        return CSV.read(smFISH_Data.folder*"/smFISH_validation/cd40_atf3_tnf.csv", DataFrames.DataFrame)
+        return CSV.read(smFISH_validation.folder*"/smFISH_validation/cd40_atf3_tnf.csv", DataFrames.DataFrame)
     end
 end
 
