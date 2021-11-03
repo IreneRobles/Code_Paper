@@ -339,25 +339,26 @@ CSV.write("TSS_raw/"*gene*"_exp4.csv", d)
 
 
 gene = "Cxcl10"
+
 tss1 = CSV.read("TSS_raw/"*gene*"_exp1.csv", DataFrames.DataFrame)
 tss2 = CSV.read("TSS_raw/"*gene*"_exp2.csv", DataFrames.DataFrame)
 tss3 = CSV.read("TSS_raw/"*gene*"_exp3.csv", DataFrames.DataFrame)
 tss4 = CSV.read("TSS_raw/"*gene*"_exp4.csv", DataFrames.DataFrame)
 
-dot1_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 1)
-dot2_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 1)
-dot3_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 1)
-dot4_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root4 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 1)
+dot1_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 1)
+dot2_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 1)
+dot3_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 1)
+dot4_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root4 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 1)
 
-dot1_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 2)
-dot2_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 2)
-dot3_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 2)
-dot4_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root4 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 2)
+dot1_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 2)
+dot2_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 2)
+dot3_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 2)
+dot4_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root4 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 2)
 
-dot1_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 3)
-dot2_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 3)
-dot3_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 3)
-dot4_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root4 * "/type6_TSS/_mRNA_AVG_ns.tif").*255; radious = 3)
+dot1_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 3)
+dot2_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 3)
+dot3_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 3)
+dot4_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root4 * "/type6_TSS/_mRNA_AVG_ns.tif").*nor; radious = 3)
 
 tss1[!,:TSS1_r1] = tss1[!,:locus1_int1_TSS2] ./ dot2_r1
 tss1[!,:TSS1_r2] = tss1[!,:locus1_int2_TSS2] ./ dot2_r2

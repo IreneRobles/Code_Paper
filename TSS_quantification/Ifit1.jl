@@ -120,17 +120,17 @@ tss3 = CSV.read("TSS_raw/Ifit1_exp2.csv", DataFrames.DataFrame)
 tss4 = CSV.read("TSS_raw/Ifit1_exp3.csv", DataFrames.DataFrame)
 
 
-dot2_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 1)*255
-dot3_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 1)*255
-dot4_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 1)*255
+dot2_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 1)*nor
+dot3_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 1)*nor
+dot4_r1 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 1)*nor
 
-dot2_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 2)*255
-dot3_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 2)*255
-dot4_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 2)*255
+dot2_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 2)*nor
+dot3_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 2)*nor
+dot4_r2 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 2)*nor
 
-dot2_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 3)*255
-dot3_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 3)*255
-dot4_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 3)*255
+dot2_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root1 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 3)*nor
+dot3_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root2 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 3)*nor
+dot4_r3 = TSSs.int_brightest_pixel( TSSs.read_tiff_as_gray(root3 * "/type1_TSS/_mRNA_AVG_ns.tif"); radious = 3)*nor
 
 
 tss2[!,:TSS1_r1] = tss2[!,:locus1_int1_TSS2] ./ dot2_r1
