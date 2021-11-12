@@ -67,11 +67,7 @@ function CellInfo1(dir, exp_df)
     exp_df[!,:Well] = [split(ii, " (")[1] for ii in exp_df[!,:Well]]
 
     im_ = innerjoin(exp_df, ima, on = :Well, makeunique=true)
-        
-
-    
-   
-     cells = DataFrames.DataFrame(CSV.read(cell_file, DataFrame))
+    cells = DataFrames.DataFrame(CSV.read(cell_file, DataFrame))
     cells = outerjoin(im_, cells, on = :ImageNumber)
     
     cells[!,:Image_Cell] = [cells[ii, :Image]*"__Cell_CP_"*string(cells[ii, :ObjectNumber]) for ii in 1:nrow(cells)]

@@ -1,13 +1,10 @@
-module SergiSingleCell2
-
-using DataFrames, RNAseq_v2
-using Bhatt2012
-using SergiData
+using DataFrames #RNAseq_v2
 import Distances
 using NoLongerProblems_FileHandling
 using NoLongerProblems
 using CSV
 
+export singlecell_distancearray, get_cell_to_cell_distances_as_vector, get_cell_to_cell_distances
 export SergiSingleCell_colData, SergiSingleCell_counts
 export get_sample, get_Bhatt_genes
 
@@ -16,12 +13,12 @@ function get_sample(sampl; counts = cd, colData = coldata)
     counts[:, append!(cols, [:GeneSymbol])]
 end
 
-cd = DataFrame!(CSV.File(string(ENV["Code"], "/Databases/SergiSingleCell/data_for_julia/","cd.csv")));
-coldata = DataFrame!(CSV.File(string(ENV["Code"], "/Databases/SergiSingleCell/data_for_julia/","coldata.csv")));
+cd = DataFrame!(CSV.File(string("../Databases/MF_SingleCell/data_for_julia/","cd.csv")));
+coldata = DataFrame!(CSV.File(string("../Databases/MF_SingleCell/data_for_julia/","coldata.csv")));
 coldata[!, :Timepoint] = [split(i, "_")[end] for i in coldata[!,:Sample]]
 coldata
 
-df_summary = DataFrame()
+df_summary = DataFrames.DataFrame()
 df_summary[!,:Sample] = unique(coldata[!,:Sample])
 df_summary[!,:Timepoint] = [split(i, "_")[end] for i in df_summary[!,:Sample]]
 df_summary[!,:Genotype] = [split(i, "_")[1] for i in df_summary[!,:Sample]]
@@ -91,7 +88,7 @@ function get_RNAseq_DE_genes_in_condition(condition_padj; counts = SergiSingleCe
 end
 
 
-export singlecell_distancearray, get_cell_to_cell_distances_as_vector, get_cell_to_cell_distances
+
 
 
 function singlecell_distancearray(df; distance = Distances.euclidean)
@@ -355,7 +352,7 @@ function calculatefromsinglecelldatatable(; measure = get_entropy, kwargs = Dict
     
 end
         
-nils_folder = string(ENV["Code"],"/Databases/SergiSingleCell/Nils/AfterRepoolingDKO/")
+nils_folder = string("../Databases/MF_SingleCell/Nils/AfterRepoolingDKO/")
 
 function read_newNilsDE(filen)
     file = string(nils_folder, filen, ".csv")
@@ -417,7 +414,7 @@ function NillsVariabilityTable_WT_CTCF_DKO()
 end
         
 
-function scde_DE(group1, group2; folder = string(ENV["Code"], "/Databases/SergiSingleCell/scde/DifferentialExpression/LPSinducible"))
+function scde_DE(group1, group2; folder = string("../Databases/MF_SingleCell/scde/DifferentialExpression/LPSinducible"))
     println("Using folder $folder")
     files = readdir_fullpath(folder)
     bool = [contains(i, group1) && contains(i, group2) for i in files]
@@ -477,5 +474,3 @@ function color_samples()
     
 end
 
-
-end
