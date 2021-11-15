@@ -379,31 +379,6 @@ images_pat = TSSs.get_image_patterns(tss_c4)
 d = TSSs.TSS_raw_quant(tss_c4, tss_c4, imagesfolder, 3; xy = 0.189, zx = 0.5)
 CSV.write("TSS_raw/"*gene*"_exp"*"$expn"*".csv", d)
 
-root1 = ROOT6
-
-
-expn = "6"
-gene = "Il12b_intron_BD"
-typeprobe = "type4"
-tss_c4 = root1 * "Segmentation_type4/_FQ_outline/_TS_detect"
-imagesfolder = root1 * "/tiff3D"
-images_pat = TSSs.get_image_patterns(tss_c4)
-d = TSSs.TSS_raw_quant(tss_c4, tss_c4, imagesfolder, 2; xy = 0.189, zx = 0.5)
-CSV.write("TSS_raw/"*gene*"_exp"*"$expn"*".csv", d)
-tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-
-
-
-expn = "6"
-gene = "HSS1_BD"
-typeprobe = "type1"
-tss_c4 = root1 * "Segmentation_type1/_FQ_outline/_TS_detect"
-imagesfolder = root1 * "/tiff3D"
-images_pat = TSSs.get_image_patterns(tss_c4)
-d = TSSs.TSS_raw_quant(tss_c4, tss_c4, imagesfolder, 3; xy = 0.189, zx = 0.5)
-CSV.write("TSS_raw/"*gene*"_exp"*"$expn"*".csv", d)
-
-
 
 root1 = ROOT7
 expn = "7"
