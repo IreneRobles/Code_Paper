@@ -254,3 +254,33 @@ function bs_bf(exp; limit = 0.1, r = "r1")
     new_df[!,:BF] = (new_df[!,:N_TSS1] .+ new_df[!,:N_TSS2])./2new_df[!,:N_Cells]
     new_df
 end
+
+function normalise_avgdot(df, genename, expn, typeprobe, ibidislide; root = pwd(), genefolder = "Gene")
+    if !in(genefolder, readdir())
+    mkdir(genefolder)
+    end
+    dot1_r1 = TSSs.int_brightest_pixel(TSSs.read_tiff_as_gray(root * typeprobe *"/_mRNA_AVG_ns.tif").*nor; radious = 1)
+    dot1_r2 = TSSs.int_brightest_pixel(TSSs.read_tiff_as_gray(root * typeprobe * "/_mRNA_AVG_ns.tif").*nor; radious = 2)
+    dot1_r3 = TSSs.int_brightest_pixel(TSSs.read_tiff_as_gray(root * typeprobe * "/_mRNA_AVG_ns.tif").*nor; radious = 3)
+
+    df[!,:TSS1_r1] = df[!,:locus1_int1_TSS2] ./ dot1_r1
+    df[!,:TSS1_r2] = df[!,:locus1_int2_TSS2] ./ dot1_r2
+    df[!,:TSS1_r3] = df[!,:locus1_int3_TSS2] ./ dot1_r3
+    df[!,:TSS2_r1] = df[!,:locus2_int1_TSS2] ./ dot1_r1
+    df[!,:TSS2_r2] = df[!,:locus2_int2_TSS2] ./ dot1_r2
+    df[!,:TSS2_r3] = df[!,:locus2_int3_TSS2] ./ dot1_r3
+    
+    
+    CSV.write("TSS_avgdot/"*genename*"_exp"*"$expn"*".csv", df)
+    ibidislide[!,:Well] = [split(ii, " (")[1] for ii in ibidislide[!,:Well]]
+    cp_dir = root1*"CP_results"
+    cells1 = CellInfo(cp_dir, add_probetypes(exp));
+    exp1 = CSV.read("TSS_avgdot/"*gene*"_exp"*"$expn"*".csv", DataFrame)
+    exp1[!,:Well] = [split(split(ii, "S 0_")[2], "_X")[1] for ii in exp1[!,:Image]]
+    exp1 = innerjoin(exp1, ibidislide, on= "Well")
+    CSV.write(genefolder*"/"*gene*"_exp"*"$expn"*"_TSS.csv", exp1)
+    CSV.write(genefolder*"/"*gene*"_exp"*"$expn"*"_CP.csv", cells1)
+    fq_dir1 = root1*typeprobe*"/"
+    fq1 = FQ_summary_MATURE(fq_dir1)
+    CSV.write(genefolder*"/"*gene*"_exp"*"$expn"*"_FQ.csv", fq1)
+end
