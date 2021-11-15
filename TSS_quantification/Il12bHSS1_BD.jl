@@ -438,6 +438,65 @@ tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
 tss1 = removeimages(tss1, ims)
 normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1")
 
+
+folder = "Il12bHSS1BD"
+root1 = ROOT1
+exp = CSV.read("IbidiChambers/IbidiChamber_Il12bHSS1_BD_exp1.csv", DataFrame)
+expn = 1
+gene = "Il12b_intron_BD"
+typeprobe = "type4"
+tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+
+gene = "HSS1_BD"
+typeprobe = "type1"
+tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+folder = "Il12bHSS1BD"
+root1 = ROOT2
+exp = CSV.read("IbidiChambers/IbidiChamber_Il12bHSS1_BD_exp2.csv", DataFrame)
+expn = 2
+gene = "HSS1_BD"
+typeprobe = "type1"
+tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1")
+gene = "Il12b_intron_BD"
+typeprobe = "type4"
+tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1")
+
+folder = "Il12bHSS1BD"
+root1 = ROOT3
+exp = CSV.read("IbidiChambers/IbidiChamber_Il12bHSS1_BD_exp3.csv", DataFrame)
+expn = 3
+gene = "HSS1_BD"
+typeprobe = "type1"
+tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1")
+gene = "Il12b_intron_BD"
+typeprobe = "type4"
+tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1")
+
+
+
+
+folder = "Il12bHSS1BD"
+root1 = ROOT4
+ims = [136,312,166,310,240,308,242,296,520,440,298, 484]
+exp = CSV.read("IbidiChambers/IbidiChamber_Il12bHSS1_BD_exp4.csv", DataFrame)
+expn = 4
+gene = "HSS1_BD"
+typeprobe = "type1"
+tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
+tss1 = removeimages(tss1, ims)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1")
+gene = "Il12b_intron_BD"
+typeprobe = "type4"
+tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
+tss1 = removeimages(tss1, ims)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1")
+
 function normalise_avgdot2(df, genename, expn, typeprobe, ibidislide; root = pwd(), genefolder = "Gene", cellinfo = CellInfo)
     dot1_r1 = TSSs.int_brightest_pixel(TSSs.read_tiff_as_gray(root * typeprobe *"/_mRNA_AVG_ns.tif").*nor; radious = 1)
     dot1_r2 = TSSs.int_brightest_pixel(TSSs.read_tiff_as_gray(root * typeprobe * "/_mRNA_AVG_ns.tif").*nor; radious = 2)
@@ -474,86 +533,6 @@ function normalise_avgdot2(df, genename, expn, typeprobe, ibidislide; root = pwd
     CSV.write(genefolder*"/"*gene*"_exp"*"$expn"*"_FQ.csv", fq1)
 end
 
-folder = "Il12bHSS1BD"
-root1 = ROOT5
-exp = CSV.read("IbidiChambers/IbidiChamber_Il12bHSS1_BD_exp78.csv", DataFrame)
-gene = "HSS1_BD"
-typeprobe = "type1"
-expn = "5"
-tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot2(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1")
-
-gene = "Il12b_intron_BD"
-typeprobe = "type4"
-tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot2(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1")
-
-folder = "Il12bHSS1BD"
-root1 = ROOT6
-exp = CSV.read("IbidiChambers/IbidiChamber_Il12bHSS1_BD_exp9.csv", DataFrame)
-expn = 6
-gene = "Il12b_intron_BD"
-typeprobe = "type4"
-tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
-
-gene = "HSS1_BD"
-typeprobe = "type1"
-tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
-
-folder = "Il12bHSS1BD"
-root1 = ROOT7
-exp = CSV.read("IbidiChambers/IbidiChamber_Il12bHSS1_BD_exp10.csv", DataFrame)
-expn = 7
-gene = "Il12b_intron_BD"
-typeprobe = "type4"
-tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
-
-gene = "HSS1_BD"
-typeprobe = "type1"
-tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
-
-
-function normalise_avgdot3(df, genename, expn, typeprobe, ibidislide; root = pwd(), genefolder = "Gene", cellinfo = CellInfo)
-    exp = split(expn, "_")[1]
-    
-     initialdf = CSV.read(genefolder*"/"*gene*"_exp"*"$exp"*"_TSS.csv", DataFrames.DataFrame)
-     initialdf_no0 = initialdf[initialdf[!,:locus1_int3_TSS2].> 0, :]
-     
-    dot1_r1 = median(initialdf_no0[!,:locus1_int1_TSS2] ./ initialdf_no0[!,:TSS1_r1])
-    dot1_r2 = median(initialdf_no0[!,:locus1_int2_TSS2] ./ initialdf_no0[!,:TSS1_r2])
-    dot1_r3 = median(initialdf_no0[!,:locus1_int3_TSS2] ./ initialdf_no0[!,:TSS1_r3])
-    
-    df[!,:TSS1_r1] = df[!,:locus1_int1_TSS2] ./ dot1_r1
-    df[!,:TSS1_r2] = df[!,:locus1_int2_TSS2] ./ dot1_r2
-    df[!,:TSS1_r3] = df[!,:locus1_int3_TSS2] ./ dot1_r3
-    df[!,:TSS2_r1] = df[!,:locus2_int1_TSS2] ./ dot1_r1
-    df[!,:TSS2_r2] = df[!,:locus2_int2_TSS2] ./ dot1_r2
-    df[!,:TSS2_r3] = df[!,:locus2_int3_TSS2] ./ dot1_r3
-    
-    CSV.write("TSS_avgdot/"*genename*"_exp"*"$expn"*".csv", df)
-    cells1 =  CSV.read(genefolder*"/"*gene*"_exp"*"$exp"*"_CP.csv", DataFrame)
-    exp1 = CSV.read("TSS_avgdot/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-      well = []
-    for ii in exp1[!,:Image]
-        try
-            push!(well,split(split(ii, "S 0_")[2], "_X")[1])
-        catch
-            push!(well,split(split(ii, "_Pos")[1], "1_0_")[2])
-        end
-    end
-        
-     exp1[!,:Well] = well
-    ibidislide[!,:Well] = [split(ii , " (1)")[1] for ii in ibidislide[!,:Well]]
-    exp1 = innerjoin(exp1, ibidislide, on= ["Well"])
-    CSV.write(genefolder*"/"*gene*"_exp"*"$expn"*"_TSS.csv", exp1)
-    CSV.write(genefolder*"/"*gene*"_exp"*"$expn"*"_CP.csv", cells1)
-    fq1 = CSV.read(genefolder*"/"*gene*"_exp"*"$exp"*"_FQ.csv", DataFrame)
-    CSV.write(genefolder*"/"*gene*"_exp"*"$expn"*"_FQ.csv", fq1)
-end
 
 folder = "Il12bHSS1BD"
 root1 = ROOT6
@@ -562,49 +541,49 @@ expn = "6_60"
 gene = "Il12b_intron_BD"
 typeprobe = "type4"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "6_70"
 gene = "Il12b_intron_BD"
 typeprobe = "type4"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "6_100"
 gene = "Il12b_intron_BD"
 typeprobe = "type4"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "6_50"
 gene = "HSS1_BD"
 typeprobe = "type1"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "6_60"
 gene = "HSS1_BD"
 typeprobe = "type1"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "6_65"
 gene = "HSS1_BD"
 typeprobe = "type1"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "6_70"
 gene = "HSS1_BD"
 typeprobe = "type1"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "6_75"
 gene = "HSS1_BD"
 typeprobe = "type1"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 folder = "Il12bHSS1BD"
 root1 = ROOT7
@@ -613,75 +592,38 @@ expn = "7_40"
 gene = "Il12b_intron_BD"
 typeprobe = "type4"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "7_50"
 gene = "Il12b_intron_BD"
 typeprobe = "type4"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "7_60"
 gene = "Il12b_intron_BD"
 typeprobe = "type4"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "7_35"
 gene = "HSS1_BD"
 typeprobe = "type1"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "7_47"
 gene = "HSS1_BD"
 typeprobe = "type1"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
 expn = "7_60"
 gene = "HSS1_BD"
 typeprobe = "type1"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-normalise_avgdot3(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
 
-function normalise_avgdot2(df, genename, expn, typeprobe, ibidislide; root = pwd(), genefolder = "Gene", cellinfo = CellInfo)
-    dot1_r1 = TSSs.int_brightest_pixel(TSSs.read_tiff_as_gray(root * typeprobe *"/_mRNA_AVG_ns.tif").*nor; radious = 1)
-    dot1_r2 = TSSs.int_brightest_pixel(TSSs.read_tiff_as_gray(root * typeprobe * "/_mRNA_AVG_ns.tif").*nor; radious = 2)
-    dot1_r3 = TSSs.int_brightest_pixel(TSSs.read_tiff_as_gray(root * typeprobe * "/_mRNA_AVG_ns.tif").*nor; radious = 3)
-
-    df[!,:TSS1_r1] = df[!,:locus1_int1_TSS2] ./ dot1_r1
-    df[!,:TSS1_r2] = df[!,:locus1_int2_TSS2] ./ dot1_r2
-    df[!,:TSS1_r3] = df[!,:locus1_int3_TSS2] ./ dot1_r3
-    df[!,:TSS2_r1] = df[!,:locus2_int1_TSS2] ./ dot1_r1
-    df[!,:TSS2_r2] = df[!,:locus2_int2_TSS2] ./ dot1_r2
-    df[!,:TSS2_r3] = df[!,:locus2_int3_TSS2] ./ dot1_r3
-    
-    
-    CSV.write("TSS_avgdot/"*genename*"_exp"*"$expn"*".csv", df)
-    ibidislide[!,:Well] = [split(ii, " (")[1] for ii in ibidislide[!,:Well]]
-    cp_dir = root1*"CP_results"
-    cells1 = CSV.read(genefolder*"/"*gene*"_exp"*"5"*"_CP.csv", DataFrame)
-    exp1 = CSV.read("TSS_avgdot/"*gene*"_exp"*"$expn"*".csv", DataFrame)
-    exp1[!,:Slide] = [ii[1:6] for ii in exp1[!,:Image]]
-      well = []
-    for ii in exp1[!,:Image]
-        try
-            push!(well,split(split(ii, "S 0_")[2], "_X")[1])
-        catch
-            push!(well,split(split(ii, "_Pos")[1], "1_0_")[2])
-        end
-    end
-    exp1[!,:Well] = well
-    exp1 = innerjoin(exp1, ibidislide, on= ["Well", "Slide"])
-    CSV.write(genefolder*"/"*gene*"_exp"*"$expn"*"_TSS.csv", exp1)
-    CSV.write(genefolder*"/"*gene*"_exp"*"$expn"*"_CP.csv", cells1)
-    fq_dir1 = root1*typeprobe*"/"
-    fq1 = CSV.read(genefolder*"/"*gene*"_exp"*"5"*"_FQ.csv", DataFrame)
-    CSV.write(genefolder*"/"*gene*"_exp"*"$expn"*"_FQ.csv", fq1)
-end
-
-ROOT5 = "Il12bBD/Rep78/"
 folder = "Il12bHSS1BD"
 root1 = ROOT5
 exp = CSV.read("IbidiChambers/IbidiChamber_Il12bHSS1_BD_exp78.csv", DataFrame)
@@ -702,4 +644,5 @@ normalise_avgdot2(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "
 expn = "5_45"
 tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
 normalise_avgdot2(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1")
+
 
