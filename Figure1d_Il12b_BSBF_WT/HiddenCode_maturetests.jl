@@ -1,7 +1,7 @@
 using Seaborn, NoLongerProblems_Pandas, Pandas, NoLongerProblems, PrettyPlotting, DataFrames, PyPlot
 using NoLongerProblems, Statistics
 using CSV, DataFrames, MultipleTesting
-using FQfiles, RCall, PyCall, PrettyPlotting3
+using FQfiles, RCall, PyCall
     
     
 tb = CSV.read("../CompleteSets/GeneData/Il12b_intron_original.csv", DataFrames.DataFrame);
