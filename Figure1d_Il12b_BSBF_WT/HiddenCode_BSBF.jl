@@ -61,7 +61,7 @@ function mean_burst_size_and_burst_fraction(df;
             burst_data = collect(vcat(d[!,Symbol(string("locus1_", int))], d[!,Symbol(string("locus2_", int))]));
         end
             
-         bool = burst_data .!= 0.0
+         bool = burst_data .> limit
         burst_data =  burst_data[bool]
         try func(burst_data) catch; 0 end
     end
@@ -74,7 +74,7 @@ function mean_burst_size_and_burst_fraction(df;
             catch;
             burst_data = collect(vcat(d[!,Symbol(string("locus1_", int))], d[!,Symbol(string("locus2_", int))]));
         end
-        bool = burst_data .!= 0.0
+        bool = burst_data .> limit
         burst_data = length(burst_data[bool])/n
     end
     
@@ -82,7 +82,7 @@ function mean_burst_size_and_burst_fraction(df;
         d = completecases!(df[df[!,:Sample].==sample, :])
         n = nrow(d)
         
-        o = d[!,:TSS1_r2].+ d[!,:TSS1_r2] .> 0
+        o = d[!,:TSS1_r2].+ d[!,:TSS2_r2] .> limit
         
         p = d[!,:N_total] .> limit
      
@@ -97,12 +97,12 @@ function mean_burst_size_and_burst_fraction(df;
         d = completecases!(df[df[!,:Sample].==sample, :])
         n = nrow(d)
         
-        o = d[!,:TSS1_r2].+ d[!,:TSS1_r2] .> 0
+        o = d[!,:TSS1_r2].+ d[!,:TSS2_r2] 
         
      
         burst_data =  o;
   
-        bool = burst_data .> 0
+        bool = burst_data .> limit
         burst_data = length(burst_data[bool])/n
     end
     
@@ -110,7 +110,7 @@ function mean_burst_size_and_burst_fraction(df;
         d = completecases!(df[df[!,:Sample].==sample, :])
         n = nrow(d)
         
-        o = d[!,:TSS1_r2].+ d[!,:TSS1_r2] .> 0
+        o = d[!,:TSS1_r2].+ d[!,:TSS1_r2] .> limit
         
         p = d[!,:N_intron] .> limit
      
@@ -128,7 +128,7 @@ function mean_burst_size_and_burst_fraction(df;
      
         burst_data = p 
   
-        bool = burst_data .> 0
+        bool = burst_data .> limit
         burst_data = length(burst_data[bool])
     end
     
@@ -137,12 +137,12 @@ function mean_burst_size_and_burst_fraction(df;
         d = completecases!(df[df[!,:Sample].==sample, :])
         n = nrow(d)
         
-        o = d[!,:TSS1_r2].+ d[!,:TSS1_r2] .> 0
+        o = d[!,:TSS1_r2].+ d[!,:TSS1_r2] .> limit
         
      
         burst_data =  o;
   
-        bool = burst_data .> 0
+        bool = burst_data .> limit
         burst_data = length(burst_data[bool])
     end
 
@@ -154,7 +154,7 @@ function mean_burst_size_and_burst_fraction(df;
             catch 
             burst_data = collect(vcat(d[!,Symbol(string("locus1_", int))], d[!,Symbol(string("locus2_", int))]));
         end
-        bool = burst_data .!= 0.0
+        bool = burst_data .> limit
         burst_data = n - length(burst_data[bool])
     end
     
