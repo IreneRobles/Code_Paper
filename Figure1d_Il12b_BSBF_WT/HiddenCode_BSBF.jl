@@ -327,49 +327,7 @@ end
 
 
 
-function Il12b_BS(gen; pal = "Blues", n = 5)
-    
-    
-    pvals = CSV.read("TukeyHSD_Il12b_BurstSize_"*gen*".csv", DataFrames.DataFrame)
 
-
-    pd = Pandas.DataFrame(locusd)
-    Seaborn.boxplot(data = pd, x= "Timepoint", y = "BurstSize", palette = pal, showfliers = false, )
-    #Seaborn.stripplot(data = pd, x= "Timepoint", y = "BurstSize", hue = "Rep",palette = "Greys", size = 1.5,jitter = 0.45, zorder = 0)
-    pretty_axes2()
-    ylim(0, 22*n)
-
-    h = 19.5*n
-    u = 0.7*n
-
-    xy = [0, 1]
-    plt.plot(xy, [h, h], c = "black")
-    p =   round(pvals[pvals[!,:Column1] .== gen*"_60-"*gen*"_0", "p adj"][1], sigdigits = 2)
-    plt.annotate("$p", xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
-    h = 17.5*n
-    xy = [1, 2]
-    plt.plot(xy, [h, h], c = "black")
-    p =   round(pvals[pvals[!,:Column1] .== gen*"_90-"*gen*"_60", "p adj"][1], sigdigits = 2)
-    plt.annotate("$p", xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
-    
-     h = 20*n
-    xy = [1, 3]
-    plt.plot(xy, [h, h], c = "black")
-    p =   round(pvals[pvals[!,:Column1] .== gen*"_60-"*gen*"_120", "p adj"][1], sigdigits = 2)
-    plt.annotate("$p", xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
-    
-    h = 12*n
-    xy = [2, 3]
-    plt.plot(xy, [h, h], c = "black")
-    p =   round(pvals[pvals[!,:Column1] .== gen*"_90-"*gen*"_120", "p adj"][1], sigdigits = 2)
-    plt.annotate("$p", xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
- 
-    ylabel("Il12b \n Burst Size")
-    xlabel("Time after LPS (min)")
-    
-        PrettyPlotting.line075black()
-
-end
 
 
 function do_mantelhaen(df, comp1, comp2)
