@@ -80,11 +80,22 @@ function BF_fig_90(summary1; pal = ["darkgray","red"], hs = [0.03, 0.05, 0.12, 0
 end
 
 
-function do_bs_tests(df, name; limit = 1)
+function do_bs_tests(df, name; limits = [1])
 REPS = [df[df[!,:Rep].==ii, :] for ii in unique(df[!,:Rep])]
-locusd = locusdata2(REPS...)
 
-locusd = locusd[locusd[!,:BurstSize].> limit, :]
+locusd = ""
+
+    if length(limits).==1
+        locusd = locusdata2(REPS...)
+        locusd = locusd[locusd[!,:BurstSize].> limits[1], :]
+    else
+        locusd = locusdata2(REPS...)
+        locusd = [locusd[locusd[!,:Rep].==ii, :] for ii in sort(unique(locusd[!,:Rep]))]
+        a = 0
+        locusd = [ii[ii[!,:BurstSize].> limits[a+=1], :] for ii in locusd]
+        locusd = vcat(locusd...)
+    end
+
 fname = "TukeyHSD_"*name*"_BurstSize.csv"
 R"""
 tb <- $locusd
@@ -105,7 +116,7 @@ end
 function Fig_BS(df, genname; pal = ["darkgray", "red"], n = 5, limit = 1, tim = 90)
     tim = string(tim)
     REPS = [df[df[!,:Rep].==ii, :] for ii in unique(df[!,:Rep])]
-    locusd = locusdata2(REPS...)
+     locusd = locusdata2(REPS...)
 
     locusd = locusd[locusd[!,:BurstSize].> limit, :]
     
@@ -119,7 +130,7 @@ function Fig_BS(df, genname; pal = ["darkgray", "red"], n = 5, limit = 1, tim = 
     ylim(0, 22*n)
 
     h = 19.5*n
-    u = 0.7*n
+    u = 1*n
 
     xy = [-0.25, 0.25]
     plt.plot(xy, [h, h], c = "black")
@@ -151,10 +162,11 @@ function Fig_BS(df, genname; pal = ["darkgray", "red"], n = 5, limit = 1, tim = 
 
     
     
-    ylabel("$name \n Burst Size")
+    ylabel("$genname \n Burst Size")
     xlabel("Time after LPS (min)")
     
         PrettyPlotting.line075black()
-
+    PrettyPlotting.squareplot()
+legend_removal()
 end
 
