@@ -1,7 +1,7 @@
 ENV["Code"] = "../../Code"
 for folder in readdir(ENV["Code"]); push!(LOAD_PATH, normpath(ENV["Code"], folder));end
 
-using CSV
+using CSV, RCall
 using NoLongerProblems_FileHandling
 using NoLongerProblems
 using DataFrames
