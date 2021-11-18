@@ -5,6 +5,7 @@ using FQfiles, RCall, PyCall
     
     
 tb = CSV.read("../CompleteSets/GeneData/Il12b_intron_original.csv", DataFrames.DataFrame);
+
 reps = tb
 reps = reps[reps[!,:Genotype].=="WT", :]
 
