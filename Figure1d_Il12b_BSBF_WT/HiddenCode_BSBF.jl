@@ -355,10 +355,6 @@ library("dplyr")
 tb = $tb
 tb$Count = as.integer(tb$Count)
     
-
-
-    
-
 Data <- mutate(tb,
            Sample = factor(Sample, levels=unique(Sample)),
            Burst = factor(Burst, levels=unique(Burst)),
