@@ -25,6 +25,21 @@ function get_completeset(genename)
     return tb
 end
 
+function get_genedata(genesymbol)
+    genedata = CSV.read(ENV["Code"]*"/../Code_Paper/CompleteSets/GeneData/"*genesymbol*".csv", DataFrame)
+       try
+        genedata[!,:TSS1_r2] = [if ii == "NA" 0 else parse(Float64, ii) end for ii in genedata[!,:TSS1_r2]]
+    catch
+    end
+    
+       try
+        genedata[!,:TSS2_r2] = [if ii == "NA" 0 else parse(Float64, ii) end for ii in genedata[!,:TSS2_r2]]
+    catch
+    end
+    genedata
+end
+
+
 
 function YiFangDeseq(name)
     yifandeseqfolder = ENV["Code"]*"/Databases/Cuartero2018/DE_result_norm2Rep_n_Spikes/"
