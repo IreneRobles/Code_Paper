@@ -6,7 +6,7 @@ using NoLongerProblems
 using Statistics
 
 include("../Databases/ProcessedData_mm9.jl")
-
+include("../Databases/mm9.jl")
 
 function get_FPKM()
     file = string("../Databases/Cuartero2018/FPKM_MF.csv")
@@ -65,4 +65,33 @@ function get_mean_FPKM()
 end
 
 
+end
+
+function Cuartero2018Deseq(name)
+    yifandeseqfolder = ENV["Code"]*"/../Code_Paper/Databases/Cuartero2018/DE_result_norm2Rep_n_Spikes/"
+    files = readdir(yifandeseqfolder)
+     bool = [occursin(name, ii) for ii in files]
+    file = files[bool]
+     if length(file) == 1
+        file = yifandeseqfolder*file[1]
+        d = dropmissing(CSV.read(file, DataFrames.DataFrame, missingstring = "NA"))
+        return rename!(d, :ensembl_id => :EnsemblID, :mgi_symbol => :GeneSymbol)
+    else
+        return files
+    end
+end
+
+function GroseqDeseq(name)
+    folder = ENV["Code"]*"/../Code_Paper/Databases/Cuartero2018/GROseq/"
+
+    files = readdir(folder)
+     bool = [occursin(name*"__DESeq2_AllGeneBody.csv", ii) for ii in files]
+    file = files[bool]
+     if length(file) == 1
+        file = folder*file[1]
+         d = innerjoin(dropmissing(CSV.read(file, DataFrames.DataFrame, missingstring = "NA")), mm9.EnsemblIDtoGeneSymbol_table(), on = :EnsemblID)
+        return  d
+    else
+        return length(file)
+    end
 end
