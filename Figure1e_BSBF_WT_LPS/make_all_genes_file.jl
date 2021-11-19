@@ -21,6 +21,23 @@ function make_summary_bursts_lps(GENE;limit = 1, rep = 1)
 
 end
 
+function get_genedata2(genesymbol)
+    genedata = CSV.read(ENV["Code"]* "/../Code_Paper/CompleteSets/CompleteSets/"*genesymbol*".csv", DataFrames.DataFrame)
+       try
+        genedata[!,:TSS1_r2] = [if ii == "NA" 0 else parse(Float64, ii) end for ii in genedata[!,:TSS1_r2]]
+    catch
+    end
+    
+       try
+        genedata[!,:TSS2_r2] = [if ii == "NA" 0 else parse(Float64, ii) end for ii in genedata[!,:TSS2_r2]]
+    catch
+    end
+    genedata[!,:Sample] = genedata[!,:Genotype] .* "_" .* string.(genedata[!,:Timepoint])
+    genedata
+end
+
+
+
 function calculate_bf(df, col; limit = 1, rep = 1)
    sams_df = split_by(df, col)
     new_df = DataFrames.DataFrame(
