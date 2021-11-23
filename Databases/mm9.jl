@@ -10,7 +10,7 @@ function EnsemblIDtoGeneSymbol_table()
     # This did not work in Julia 1.4
     #ENSGeneID = DataFrames.DataFrame!(CSV.File(ENSGeneID, delim = '\t', skipstart = 1, header = false))[2:end, [:Column1, :Column2]]
     
-    ENSGeneID = DataFrames.DataFrame!(CSV.File(ENSGeneID, delim = '\t', skipto = 1, header = false))[2:end, [:Column1, :Column2]]
+    ENSGeneID = CSV.read(ENSGeneID,DataFrames.DataFrame, delim = '\t', skipto = 1, header = false)[2:end, [:Column1, :Column2]]
     rename!(ENSGeneID, :Column1 => :EnsemblID)
     rename!(ENSGeneID, :Column2 => :GeneSymbol)
 end
