@@ -65,7 +65,7 @@ function get_mean_FPKM()
 end
 
 
-end
+
 
 function Cuartero2018Deseq(name)
     yifandeseqfolder = ENV["Code"]*"/../Code_Paper/Databases/Cuartero2018/DE_result_norm2Rep_n_Spikes/"
@@ -94,4 +94,6 @@ function GroseqDeseq(name)
     else
         return length(file)
     end
+end
+
 end
