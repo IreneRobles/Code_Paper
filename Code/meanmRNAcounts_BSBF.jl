@@ -26,7 +26,7 @@ function get_completeset(genename)
 end
 
 function get_genedata(genesymbol)
-    genedata = CSV.read(ENV["Code"]*"/../Code_Paper/CompleteSets/GeneData/"*genesymbol*".csv", DataFrame)
+    genedata = CSV.read(ENV["Code"]*"/../Code_Paper/CompleteSets/GeneData/"*genesymbol*".csv", DataFrames.DataFrame)
        try
         genedata[!,:TSS1_r2] = [if ii == "NA" 0 else parse(Float64, ii) end for ii in genedata[!,:TSS1_r2]]
     catch
