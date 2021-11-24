@@ -1,7 +1,7 @@
 ENV["Code"] = "../../Code"
 for folder in readdir(ENV["Code"]); push!(LOAD_PATH, normpath(ENV["Code"], folder));end
 
-include(ENV["Code"]*"/../Code_Paper/Figure1e_BSBF_WT_LPS/meanmRNAcounts_BSBF.jl")
+include(ENV["Code"]*"/../Code_Paper/Code/meanmRNAcounts_BSBF.jl")
 
 ifnb1 = CSV.read(ENV["Code"]*"/../Code_Paper/CompleteSets/"*"CompleteSets/Ifnb1_mature.csv", DataFrames.DataFrame)
 bf_ifnb1 = calculate_bf_by_rep(ifnb1, "TSS", "Ifnb1_mature")
@@ -34,4 +34,4 @@ bfs[!,"log2 mean mRNA counts"] = log2.(bfs[!,"MeanCountsTSS"]);
 
 rename!(bfs, :MeanCountsTSS => :MeanCounts)
 
-CSV.write("DataFig5/meanmRNAcounts_BSBF_v2.csv",bfs)
+CSV.write("meanmRNAcounts_BSBF_v2.csv",bfs)
