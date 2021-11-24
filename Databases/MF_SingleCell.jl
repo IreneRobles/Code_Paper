@@ -13,8 +13,8 @@ function get_sample(sampl; counts = cd, colData = coldata)
     counts[:, append!(cols, [:GeneSymbol])]
 end
 
-cd = DataFrame!(CSV.File(string("../Databases/MF_SingleCell/data_for_julia/","cd.csv")));
-coldata = DataFrame!(CSV.File(string("../Databases/MF_SingleCell/data_for_julia/","coldata.csv")));
+cd = CSV.read(string("../Databases/MF_SingleCell/data_for_julia/","cd.csv"), DataFrames.DataFrame);
+coldata = CSV.read(string("../Databases/MF_SingleCell/data_for_julia/","coldata.csv"), DataFrames.DataFrame);
 coldata[!, :Timepoint] = [split(i, "_")[end] for i in coldata[!,:Sample]]
 coldata
 
