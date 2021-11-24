@@ -20,4 +20,12 @@
 **/**/*.svg
 **/**/**/*.svg
 **/**/**/**/*.svg
+**/*.pdf
+**/**/*.pdf
+**/**/**/*.pdf
+**/**/**/**/*.pdf
+**/*checkpoint*
+**/**/*checkpoint*
+**/**/.ipynb_checkpoints/*.ipynb
+**/.ipynb_checkpoints/*.ipynb
 EnhancerInducibleGenes/*
