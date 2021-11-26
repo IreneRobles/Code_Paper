@@ -535,6 +535,16 @@ end
 
 
 folder = "Il12bHSS1BD"
+root1 = ROOT5
+exp = CSV.read("IbidiChambers/IbidiChamber_Il12bHSS1_BD_exp78.csv", DataFrame)
+expn = "5_37"
+gene = "Il12b_intron_BD"
+typeprobe = "type4"
+tss1 = CSV.read("TSS_raw/"*gene*"_exp"*"$expn"*".csv", DataFrame)
+normalise_avgdot(tss1, gene, expn, typeprobe, exp; root = root1, genefolder = "Il12bHSS1",  cellinfo = CellInfo1)
+
+
+folder = "Il12bHSS1BD"
 root1 = ROOT6
 exp = CSV.read("IbidiChambers/IbidiChamber_Il12bHSS1_BD_exp9.csv", DataFrame)
 expn = "6_60"
