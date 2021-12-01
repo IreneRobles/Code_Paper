@@ -10,6 +10,7 @@ hss1lim = 0
 # Burst frequenciy summaries and tests
 
 BFs_all_gene_il = calculatesumary_byrep(il12b, limit = 1)
+CSV.write("Il12b_BD_summary.csv", BFs_all_gene_il)
 
 TEST_gene_il = BF_test(BFs_all_gene_il, "Il12b_intron_BD", :N_TSS, [
         ["Rad21KO_DMSO", "WT_DMSO"],
@@ -27,6 +28,7 @@ TEST_gene_il = BF_test(BFs_all_gene_il, "Il12b_intron_BD", :N_TSS, [
         ])
 
 BFs_all_gene_hss1 = calculatesumary_byrep(hss1, limit = hss1lim)
+CSV.write("HSS1_BD_summary.csv", BFs_all_gene_hss1)
 
 TEST_gene_hss1 = BF_test(BFs_all_gene_hss1, "HSS1_BD", :N_TSS, [
         ["Rad21KO_DMSO", "WT_DMSO"],
@@ -44,6 +46,7 @@ TEST_gene_hss1 = BF_test(BFs_all_gene_hss1, "HSS1_BD", :N_TSS, [
         ])
 
 BFs_all_gene_egr2 = calculatesumary_byrep(egr2, limit = 1)
+CSV.write("Egr2_BD_summary.csv", BFs_all_gene_egr2)
 
 TEST_gene_egr2 = BF_test(BFs_all_gene_egr2, "Egr2_intron_BD", :N_TSS, [
         ["Rad21KO_DMSO", "WT_DMSO"],
@@ -61,6 +64,7 @@ TEST_gene_egr2 = BF_test(BFs_all_gene_egr2, "Egr2_intron_BD", :N_TSS, [
         ])
 
 BFs_all_gene_egr2enh = calculatesumary_byrep(egr2enh, limit = 1)
+CSV.write("Egr2enh_BD_summary.csv", BFs_all_gene_egr2enh)
 
 TEST_gene_egr2enh = BF_test(BFs_all_gene_egr2enh, "Egr2_enh_BD", :N_TSS, [
         ["Rad21KO_DMSO", "WT_DMSO"],
