@@ -70,7 +70,7 @@ gene = "Ifit1"
 ifit1 = CSV.read("GeneData/"*gene*".csv", DataFrame)
 CSV.write("CompleteSets/Ifit1.csv", ifit1[!, colstosave])
 colstosave2 = [ "Image","Cell", "Genotype", "Timepoint", "Rep","TSS1_r2", "TSS2_r2", "N_exon"]
-CSV.write("CompleteSets/Ifit1_mature.csv", set1[!, colstosave2])
+CSV.write("CompleteSets/Ifit1_mature.csv", ifit1[!, colstosave2])
 
 gene = "Cxcl10"
 cxcl10 = CSV.read("GeneData/"*gene*".csv", DataFrame)
