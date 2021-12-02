@@ -351,6 +351,7 @@ library("vcd")
 library("DescTools")
 library("rcompanion")
 library("dplyr")
+options(warn=-1)
 
 tb = $tb
 tb$Count = as.integer(tb$Count)
