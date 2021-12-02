@@ -33,3 +33,6 @@ EnhancerInducibleGenes/*
 **/**/*.html
 **/**/**/*.html
 **/**/**/**/*.html
+Figure1d_Il12b_BSBF_WT/WT_Il12b_BSBFtimecourse.svg
+TSS_quantification/.DS_Store
+TSS_quantification/1_RunQuantification.ipynb
