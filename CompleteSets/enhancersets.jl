@@ -35,18 +35,16 @@ CSV.write("GeneData/"*"$intronname"*".csv", all_gene)
 folder = "Egr2"
 gene = "Egr2_intron"
 folder = "../TSS_quantification/"*folder*"/"
-
-
 e1 = get_data(folder, gene, 1)
 e2 = get_data(folder, gene, 2)
-e2[!,:Rep] = [2 for ii in 1:nrow(e2)]
+#e2[!,:Rep] = [2 for ii in 1:nrow(e2)]
 
 exps = vcat(e1,e2)
 CSV.write("GeneData/"*gene*".csv", exps)
 gene = "Egr2_enh"
 e1 = get_data(folder, gene, 1)
 e2 = get_data(folder, gene, 2)
-e2[!,:Rep] = [2 for ii in 1:nrow(e2)]
+#e2[!,:Rep] = [2 for ii in 1:nrow(e2)]
 
 exps = vcat(e1,e2)
 CSV.write("GeneData/"*gene*".csv", exps)
