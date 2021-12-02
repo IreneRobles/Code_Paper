@@ -124,6 +124,7 @@ library("vcd")
 library("DescTools")
 library("rcompanion")
 library("dplyr")
+    options(warn=-1)
 
 tb = $tb
 tb$Count = as.integer(tb$Count)
@@ -388,7 +389,7 @@ for ii in 1:length(pvals)
     annotate("$p", xy =[mean([ii-1.25, ii-0.75]), h+u], ha = "center", va = "center")
     
 end 
-    ylabel("");squareplot()
+    ylabel(""); ylim(0, maximum(hi)*1.3);squareplot()
         
  
 end
