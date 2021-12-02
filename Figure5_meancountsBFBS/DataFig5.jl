@@ -24,3 +24,5 @@ bfs[!,"log2 mean mRNA counts"] = log2.(bfs[!,"MeanCountsTSS"]);
 rename!(bfs, :MeanCountsTSS => :MeanCounts)
 
 CSV.write("meanmRNAcounts_BSBF.csv",bfs)
+
+return bfs
