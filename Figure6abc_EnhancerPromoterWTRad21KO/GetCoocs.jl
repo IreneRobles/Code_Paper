@@ -55,4 +55,4 @@ tb[!,:Timepoint] = [split(ii, "_")[2] for ii in tb[!,:Sample_Rep]]
 tb[!,"log2_BF_Enhancer"] = log2.(tb[!,"BF_Enhancer"])
 tb[!,"log2_BF_Gene"] = log2.(tb[!,"BF_Gene"]) 
 
-CSV.write("EnhancerGEneBF.cvs", tb)
+CSV.write("EnhancerGeneBF.csv", tb)
