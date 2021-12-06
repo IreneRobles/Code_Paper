@@ -27,7 +27,7 @@ e1 = get_data(folder, gene, 1)
 #very few cells
 e1 = e1[e1[!,:Sample].!="Rad21KO_DMSO-LPS", :]
 e2 = get_data(folder, gene, 2)
-e5 = get_data(folder, gene, "5_30")
+e5 = get_data2(folder, gene, "5_30")
 e6 = get_data(folder, gene, "6_70")
 e7 = get_data(folder, gene, "7_47")
 exps = join_in_all_common_columns(e1,e2, e5, e6, e7)
