@@ -29,7 +29,7 @@ plot_BF_Genotype(BFs_all_gene_hss1,TEST_gene_hss1;
     ylabel_ = "Enh. burst frequency")
 
 subplot(2,4,8)
-n = 0.5
+n = 0.3
 plot_BF_Genotype(BFs_all_gene_il,TEST_gene_il;
     hs = [0.4, 0.55, 0.63, 0.50].*n,
     ylimit = 0.7*n, 
