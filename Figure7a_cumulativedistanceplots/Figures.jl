@@ -9,6 +9,12 @@ function show_distances2(genefolder,nascent,ehn,suff; limit = 4, limit_gene = 1,
         tb2 = linked_data(genefolder, nascent*"_BD",ehn*"_BD",suff) 
         tb2 = tb2[tb2[!,:Timepoint] .== "DMSO-LPS", :]
         tb = join_in_all_common_columns(tb, tb2)
+        if nascent == "Il12b_intron"
+            tb2 = linked_data(genefolder, nascent*"_timecourse",ehn*"_timecourse",suff) 
+            tb2 = tb2[tb2[!,:Timepoint] .== 90, :]
+            tb2[!,:Rep]= tb2[!,:Rep].+20
+            tb = join_in_all_common_columns(tb, tb2)
+        end
     end
     pairs = get_pairs_with_distances(tb)
     
@@ -112,4 +118,46 @@ function show_distances_BD(genefolder,nascent,ehn,suff; limit = 4, limit_gene = 
      #title("$nascent - $ehn \nP=$pval")
    plt.tight_layout()
     
+end
+
+
+
+function pair_summary(folder, nascent, enh, suff ; limit = 10)
+    tb = linked_data(folder, nascent, enh, suff)
+    
+    tb = tb[tb[!,:Timepoint].>0, :]
+    if nascent == "Prdm1_intron"
+        tb = tb[tb[!,:Timepoint].==60, :]
+    end
+    if nascent == "Il12b_intron" || nascent == "Egr2_intron"
+        tb2 = linked_data(folder, nascent*"_BD",enh*"_BD",suff) 
+        tb2 = tb2[tb2[!,:Timepoint] .== "DMSO-LPS", :]
+        tb2[!,:Rep]= tb2[!,:Rep].+5
+        tb = join_in_all_common_columns(tb, tb2)
+        if nascent == "Il12b_intron"
+            tb2 = linked_data(folder, nascent*"_timecourse",enh*"_timecourse",suff) 
+            tb2 = tb2[tb2[!,:Timepoint] .== 90, :]
+            tb2[!,:Rep]= tb2[!,:Rep].+20
+            tb = join_in_all_common_columns(tb, tb2)
+        end
+    end
+     pairs = get_pairs_with_distances(tb)
+    pairs = pairs[parse.(Float64,pairs[!,:locus1_Gene_Enh]).< limit, :]
+    wt = pairs[pairs[!,:Genotype].=="WT", :]
+    rad = pairs[pairs[!,:Genotype].=="Rad21KO", :]
+    wttb = tb[tb[!,:Genotype].=="WT", :]
+    radtb = tb[tb[!,:Genotype].=="Rad21KO", :]
+    
+    
+    DataFrames.DataFrame(
+        Intron = [nascent],
+        Enhancer = [enh],
+        Reps = [length(unique(tb[!,:Rep]))],
+        N_Cells = [nrow(tb)],
+        N_Cells_WT = [nrow(wttb)],
+        N_Cells_Rad21KO = [nrow(radtb)],
+        N_Pairs = [nrow(pairs)],
+        N_Pairs_WT = [nrow(wt)],
+        N_Pairs_Rad21KO = [nrow(rad)],
+    )
 end
