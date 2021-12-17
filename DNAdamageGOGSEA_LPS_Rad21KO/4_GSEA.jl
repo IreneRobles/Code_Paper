@@ -66,3 +66,14 @@ function joinGSEASforTable(gseas...; names = [string("x", ii) for ii in 1:length
     end
     df
 end
+
+function joinGSEASforTable_padj(gseas...; names = [string("x", ii) for ii in 1:length(gseas)])
+    df = gseas[1][:, [:pathway, :padj]]
+    rename!(df, :padj => Symbol(names[1]))
+    for ii in 2:length(gseas)
+        df2 = gseas[ii][:, [:pathway, :padj]]
+        rename!(df2, :padj => Symbol(names[ii]))
+        df = innerjoin(df, df2, on = :pathway)
+    end
+    df
+end
