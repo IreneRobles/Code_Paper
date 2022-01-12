@@ -62,7 +62,7 @@ function perform_goseq(
 end
 
  
- function barplot_go(up_down; n = 10)
+function barplot_go(up_down; n = 10)
     
     file = up_down
     file[!,Symbol("-log10(overrepresented_padj)")] = [-log10(i) for i in file[!,:over_represented_padj]]
@@ -82,5 +82,27 @@ end
     axes[:spines]["right"][:set_visible](false) # Hide the right edge of the axis
     axes[:xaxis][:set_ticks_position]("bottom")
     axes[:yaxis][:set_ticks_position]("left")
-        
-    end
+end
+
+
+
+function plot_category(goterm)
+    minitb = maxitb[maxitb[!,:category].==goterm, :]
+    title_= minitb[1,:term]
+    file = sort(minitb, :Test)
+    n = 24
+    file[!,Symbol("-log10(overrepresented_padj)")] = [-log10(i) for i in file[!,:over_represented_padj]]
+    pd = Pandas.DataFrame(file[1:n, :])
+    barplot(x = "-log10(overrepresented_padj)", y="Test", data=pd, palette="Blues_d")
+    
+    plot([-log10(0.05), -log10(0.05)], [ -0.5 , n - 0.5 ], linewidth=2, c = "red")
+    
+    annotate("padj = 0.05" , xy = [-log10(0.05),  n ], color = "darkred")
+    
+    ylim(-0.75 , n+1)
+    
+    PrettyPlotting.pretty_axes2()
+    plt.title(title_)
+    minitb
+end
+
