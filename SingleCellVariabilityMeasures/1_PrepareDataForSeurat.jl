@@ -31,3 +31,6 @@ function prepare_data_seurat(scexp; dir = "SergiSeurat")
 end
 
 prepare_data_seurat(sce)
+
+import Pkg
+Pkg.status()
