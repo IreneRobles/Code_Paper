@@ -19,7 +19,7 @@ bf_ifit1 = calculate_bf_by_rep(ifit1, "TSS", "Ifit1")
 bfs = join_in_all_common_columns([bf_ifnb1, bf_il12b, bf_ifit1, bf_Cxcl10])
 bfs[!,"log2 BF"] = log2.(bfs[!,"BF_TSS"])
 bfs[!,"log2 BS"] = log2.(bfs[!,"BS_mean_TSS"])
-bfs[!,"log2 mean mRNA counts"] = log2.(bfs[!,"MeanCountsTSS"]);
+bfs[!,"log2 mean mRNA counts"] = log2.(bfs[!,"MeanCounts"]);
 
 rename!(bfs, :MeanCountsTSS => :MeanCounts)
 

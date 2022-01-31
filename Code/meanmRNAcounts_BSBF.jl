@@ -117,16 +117,19 @@ function calculate_bf(t, tname; limit = 2)
     n_tss =[]
     bs_mean =[]
     bs_median =[]
-     bs_std =[]
+    bs_std =[]
     exon_mean = []
+    exon_std = []
     
     for ii in samples
         push!(n_cells, sum(t[!,:Sample] .== ii))
         sp_sam = t[t[!,:Sample] .== ii, :]
         try 
             push!(exon_mean, Statistics.mean(sp_sam[!,"N_exon"]))
+            push!(exon_std, Statistics.std(sp_sam[!,"N_exon"]))
         catch
             push!(exon_mean, Statistics.mean(sp_sam[!,"N_thres_Total"]))
+            push!(exon_std, Statistics.std(sp_sam[!,"N_thres_Total"]))
         end
         locus1_bool = sp_sam[!,Symbol(string("TSS1_r2"))] .> limit
         locus1 = sp_sam[locus1_bool,Symbol(string("TSS1_r2"))]
@@ -153,7 +156,8 @@ function calculate_bf(t, tname; limit = 2)
     new_df[!,Symbol(string("BS_mean_", tname))] = bs_mean
     new_df[!,Symbol(string("BS_median_", tname))] = bs_median
     new_df[!,Symbol(string("BS_std_", tname))] = bs_std
-    new_df[!,Symbol(string("MeanCounts", tname))] = exon_mean
+    new_df[!,Symbol(string("MeanCounts"))] = exon_mean
+    new_df[!,Symbol(string("StdCounts"))] = exon_std
                     
     
     new_df
