@@ -53,3 +53,5 @@ Figure1f_WT_scRNAseq_induciblegenes/Panel1_Heatmap.ipynb
 *.pdf
 SingleCellVariabilityMeasures/output_seurat/seurat_obj/seurat_pipeline_default_cc_regressed_normalised.rds
 SingleCellVariabilityMeasures/output_seurat/seurat_obj/seurat_pipeline_default_normalised_no_cc_regression.rds
+Figure1b_smFISHvalidation/cormatset2.svg
+*.svg
