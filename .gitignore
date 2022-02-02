@@ -55,3 +55,4 @@ SingleCellVariabilityMeasures/output_seurat/seurat_obj/seurat_pipeline_default_c
 SingleCellVariabilityMeasures/output_seurat/seurat_obj/seurat_pipeline_default_normalised_no_cc_regression.rds
 Figure1b_smFISHvalidation/cormatset2.svg
 *.svg
+*.csv
