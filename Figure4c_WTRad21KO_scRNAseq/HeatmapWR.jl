@@ -33,7 +33,7 @@ subsubsce = sort_cells!(subsubsce, cols = [ :LPS, :Genotype,:BhattGenesScore], r
 
 
 
-g = Seaborn.clustermap(subsubsce.assays["lnCPMplus1"], figsize = (7, 4),yticklabels=false,xticklabels=false, col_cluster = false, col_colors = [col_colors_dict[ii] for ii in subsce.colData[!,:Genotype]], cmap="coolwarm")
+g = Seaborn.clustermap(subsubsce.assays["lnCPMplus1"], figsize = (7, 4),yticklabels=false,xticklabels=false, col_cluster = false, col_colors = [col_colors_dict[ii] for ii in subsubsce.colData[!,:Genotype]], cmap="coolwarm")
 
 ax = g.ax_heatmap
 ax.set_ylabel("LPS inducible genes")
