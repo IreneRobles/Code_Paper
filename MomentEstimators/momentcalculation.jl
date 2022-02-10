@@ -3,6 +3,9 @@ for folder in readdir(ENV["Code"]); push!(LOAD_PATH, normpath(ENV["Code"], folde
 include(ENV["Code"]*"/../Code_Paper/Code/meanmRNAcounts_BSBF.jl")
 using Random, Statistics
 using RCall
+using MATLAB
+using Distributions, DataFrames, CSV
+
 
 
 function bootstrap_mean_std(genedata, gene; subsampling = true, cellssubsampled = 50, times = 1000, limit = 2, limit_exon = 5)
@@ -78,13 +81,11 @@ function bootstrap_mean_std(genedata, gene; subsampling = true, cellssubsampled 
     new_df[!,"TSS_BF"] =  bf
     new_df[!,"momment_BF"] = new_df[!,"bootstrap_mean"] ./ ( new_df[!,"bootstrap_std"].-1)
     
-    new_df
+    new_df2 = BSBF_negativebinomial(genedata, gene; alpha = 0.01)
+    
+    new_df = innerjoin(new_df, new_df2, on = :Sample_Rep)
     
 end
-
-
-using MATLAB
-using Distributions, DataFrames, CSV
 
 function nbinfit(array)
     a = mxarray(Array(array))
