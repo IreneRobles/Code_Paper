@@ -46,13 +46,18 @@ function plot_gene_enh_correlation(tb_enh, tb_gene, genes; label = "WT", c = "bl
       return genes[!,:GeneSymbol_nearest], subtb[!,:coordinates], genes
 end
 
-function maketablesforanalysis(gro_gene, gro_enh, filename, genotype)
+function maketablesforanalysis(gro_gene, gro_enh, filename, genotype; contacts = false)
 gro_gene =  unique(gro_gene)
 mm9table = ProcessedData_mm9.one_gene_one_locus_databasetable()[!,[:EnsemblID]]
 gro_gene = innerjoin(mm9table,gro_gene, on = :EnsemblID)
 mm9table = ProcessedData_mm9.one_gene_one_locus_databasetable()[!,[:EnsemblID, :GeneSymbol, :chr, :start, :end, :tss]]
 mm9table = innerjoin(mm9table, DataFrames.DataFrame(GeneSymbol = geneset), on = :GeneSymbol)
-tads = bed_readerTADs(normpath(ENV["Code"]*"/../Code_Paper/Databases/GSE115524/", "TADs_list_25kb_iced_GSE115524_HiC_Macrophage.bed"))
+tads = ""
+    if !contacts
+    tads = bed_readerTADs(normpath(ENV["Code"]*"/../Code_Paper/Databases/GSE115524/", "TADs_list_25kb_iced_GSE115524_HiC_Macrophage.bed"))
+    else
+    tads = bed_readerTADs(normpath(ENV["Code"]*"/../Code_Paper/Databases/GSE115524/","Contact_Domains_GSE115524_HiC_Macrophage_R1R2_keepSmall.bed"))
+    end
 
 #Get the TADs per gene based on their TSS
 TADgenes = []
