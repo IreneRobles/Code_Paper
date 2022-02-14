@@ -49,10 +49,10 @@ function do_mantelhaen(df, comp1, comp2)
 
     
 test = R"""
-library("psych")
-library("vcd")
-library("DescTools")
-library("rcompanion")
+#library("psych")
+#library("vcd")
+#library("DescTools")
+#library("rcompanion")
 library("dplyr")
 options(warn=-1)
 
