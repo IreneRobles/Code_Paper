@@ -101,7 +101,7 @@ d
 end
 
 function NoLongerProblems.transform_pvalue_in_stars(p)
-    return round(p, sigdigits = 3)
+    return round(p, sigdigits = 2)
 end
     
 
