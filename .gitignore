@@ -58,3 +58,4 @@ Figure1b_smFISHvalidation/cormatset2.svg
 *.csv
 *.pptx
 Figure6e_GROseqEnhRNAseqGenes/GeneEnhlog2FC_RNAGRO_bycontactbytad.ai
+SingleCellVariabilityMeasures/testcovgenev2.RData
