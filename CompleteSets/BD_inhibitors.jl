@@ -49,7 +49,7 @@ e2 = get_data(folder, gene, 2)
 e3 = get_data(folder, gene, 3)
 e4 = get_data(folder, gene, 4)
 
-exps = join_in_all_common_columns(e1,e2, e3, e4)
+exps = join_in_all_common_columns(e1,e2, e4)
 exps = exps[[!in(ii, nopoints) for ii in exps[!, :Timepoint]], :]
 
 CSV.write("GeneData/"*gene*".csv", exps)
@@ -61,7 +61,7 @@ e2 = get_data(folder, gene, 2)
 e3 = get_data(folder, gene, 3)
 e4 = get_data(folder, gene, 4)
 
-exps = join_in_all_common_columns(e1,e2, e3, e4)
+exps = join_in_all_common_columns(e1,e2, e4)
 exps = exps[[!in(ii, nopoints) for ii in exps[!, :Timepoint]], :]
 
 CSV.write("GeneData/"*gene*".csv", exps)
