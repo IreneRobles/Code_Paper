@@ -190,7 +190,8 @@ mantelhaen.test(Data.xtabs)
 
     Seaborn.boxplot(data = pd3, y = "Fraction of Cells", x = "Timepoint", hue = "2 TSS detected", showfliers = false, palette = ["gray", "lightgray"])
     
-    
+    a = DataFrames.DataFrame(pd1)
+    CSV.write("../SourceData/Fig3c_"*target*".csv", a)
 
     
     plot([-0.25,0.25], [h1, h1], c = "black", lw = 0.75)

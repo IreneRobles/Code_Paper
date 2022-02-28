@@ -705,6 +705,9 @@ Data.xtabs <- xtabs(Count ~ Burst + variable + Rep,
     
     
     Seaborn.boxplot(data = pd, x = "Timepoint", color = "gray", y ="Coocurrence", showfliers = false, hue = "variable")
+    
+    
+    CSV.write("../SourceData/Fig3eg_"*by*"_"*p1*"-"*p2*".csv", DataFrames.DataFrame(pd))
     #Seaborn.stripplot(data = pd, x = "Timepoint", color = "gray", y ="Coocurrence $by", hue = "variable", dodge = true)
      pretty_axes2()
     title("$p1 - $p2")

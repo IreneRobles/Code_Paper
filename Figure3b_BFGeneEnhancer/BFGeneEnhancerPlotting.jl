@@ -86,7 +86,8 @@ a = a[.! isinf.(a[!,"log2_BF_Enhancer"]), :]
 
 x = a[!,"log2_BF_Enhancer"]
 y = a[!,"log2_BF_Gene"]
-
+    
+CSV.write("../SourceData/Fig3b.csv", a)
 
 pd = Pandas.DataFrame(a)
 pd["LPS"] = pd["Timepoint"] .> 0

@@ -75,6 +75,9 @@ function show_distances(genefolder,nascent,ehn,suff; limit = 4, limit_gene = 1, 
     sort!(pairs, [:Genotype, :Timepoint], rev = true)
 
     pd = Pandas.DataFrame(pairs)
+        CSV.write("../SourceData/Fig3f_"*nascent*"-"*ehn*".csv", pairs)
+    
+    
     Seaborn.boxplot(data = pd, y = "locus1_Gene_Enh", x = "Genotype", showfliers = false, palette = ["darkgray", "red"])
     pretty_axes2()
     title(nascent)
@@ -251,6 +254,7 @@ tb = linked_data(folder,gene,enh,suff)
 tb = tb[tb[!,:Gene_N].==1, :]
 tb_nd = tb[tb[!,:Enh_N].==1, :]
 tb_nd[!,distcol] = tb_nd[!,:locus1_Gene_Enh]
+    tb_nd = tb_nd[tb_nd[!,"Genotype"].=="WT", :]
 n_cells = nrow(tb_nd)
 
 pd3 = Pandas.DataFrame(tb_nd)
@@ -268,6 +272,7 @@ Seaborn.stripplot(data = pd, y = distcol,x = "Pairs", jitter = 0.35, hue = "Rep"
     
     
 df = DataFrames.DataFrame(pd)
+    CSV.write("../SourceData/Fig3f.csv",df[!,["Genotype", "Timepoint", "Rep", "Pairs", distcol]])
     
     t = R"""
 
