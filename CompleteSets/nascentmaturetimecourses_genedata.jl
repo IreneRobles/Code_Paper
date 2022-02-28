@@ -52,7 +52,7 @@ CSV.write("GeneData/Peli1_intron_original.csv", exps)
 gene = "Ifnb1_original"
 folder = "../TSS_quantification/Ifnb1_original/"
 exps = []
-for expnumber in ["1", "2",]
+for expnumber in ["1", "2", "3"]
 exp = CSV.read(folder* gene*"_exp"*expnumber*"_FQ.csv", DataFrames.DataFrame)
 exp = column_fusion(exp, :Image, :Cell)
 t = CSV.read(folder* gene*"_exp"*expnumber*"_TSS.csv", DataFrames.DataFrame)
