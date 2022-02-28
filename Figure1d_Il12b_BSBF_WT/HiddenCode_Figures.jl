@@ -48,6 +48,8 @@ function Il12b_BF(gen; pal = "Blues")
         do_mantelhaen(summary1, gen*"_60", gen*"_90")[1],
         do_mantelhaen(summary1, gen*"_90", gen*"_120")[1],
         ], Bonferroni())
+    
+    CSV.write("../SourceData/Fig1d_Il12bBF.csv", summary1[summary1[!,:Genotype].==gen, [:Genotype, :Timepoint, :Rep, :BurstFraction, :n_cells]])
 
     pd = Pandas.DataFrame(summary1[summary1[!,:Genotype].==gen, :])
     Seaborn.boxplot(data = pd, x= "Timepoint", y = "BurstFraction", palette = pal, showfliers = false, )
@@ -80,7 +82,8 @@ function Il12b_BS(gen; pal = "Blues", n = 5)
     
     
     pvals = CSV.read("TukeyHSD_Il12b_BurstSize_"*gen*".csv", DataFrames.DataFrame)
-
+    
+    CSV.write("../SourceData/Fig1d_Il12bBS.csv", locusd)
 
     pd = Pandas.DataFrame(locusd)
     Seaborn.boxplot(data = pd, x= "Timepoint", y = "BurstSize", palette = pal, showfliers = false, )
