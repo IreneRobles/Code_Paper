@@ -16,7 +16,7 @@ TEST = BF_test(BFs_gene, "$intronname", :N_TSS, [
         ])
 
 CSV.write("$AnalysisName/"*"$intronname"*"_BFs.csv", BFs_gene)
-CSV.write("$AnalysisName/"*"$intronname"*"_BFs_test.csv", TEST)
+#CSV.write("$AnalysisName/"*"$intronname"*"_BFs_test.csv", TEST)
 figure(figsize = (6, 8))
 subplot(3,2,1);title("Il12b")
     Seaborn.stripplot(data = Pandas.DataFrame(BFs_gene), x = "Timepoint", y = "BF", hue = "Rep", palette = "Greys")
@@ -66,7 +66,7 @@ TEST = BF_test(BFs_gene, "$ehnname", :N_TSS, [
         ])
 
 CSV.write("$AnalysisName/"*"$ehnname"*"_BFs.csv", BFs_gene)
-CSV.write("$AnalysisName/"*"$ehnname"*"_BFs_test.csv", TEST)
+#CSV.write("$AnalysisName/"*"$ehnname"*"_BFs_test.csv", TEST)
 
 subplot(3,2,2);title("HSS1")
     Seaborn.stripplot(data = Pandas.DataFrame(BFs_gene), x = "Timepoint", y = "BF", hue = "Rep", palette = "Greys")
