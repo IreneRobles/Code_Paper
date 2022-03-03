@@ -30,7 +30,7 @@ function Il12b_maturefig_expressing()
 
     
     
-    ylabel("Il12b  mature mRNA counts \n in cells with more than $lim_exp")
+    ylabel("$gene mRNA counts \n in cells with more than $lim_exp")
     xlabel("Time after LPS (min)")
     
     squareplot()
@@ -234,7 +234,7 @@ function mean_burst_size_and_burst_fraction(df...;
     
 end
 
-function Il12b_Fexpcells_radwt()
+function Il12b_Fexpcells_radwt(;hs = [0.1, 0.2, 0.4, 0.6], u = 0.03)
 
     pd = Pandas.DataFrame(summary1)
      Seaborn.boxplot(data = pd, x= "Timepoint", y = "F_Expressing_exon", palette = ["darkgray", "red"], hue = "Genotype", showfliers = false, )
@@ -242,34 +242,135 @@ function Il12b_Fexpcells_radwt()
     pretty_axes2()
 
 
-    h = 0.1
-    u = 0.03
+    h = hs[1]
+    
 
     xy = [-0.25, 0.25]
     plt.plot(xy, [h, h], c = "black", lw = 0.75)
     plt.annotate(string("", round(ps[1], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
 
-    h = 0.2
+    h = hs[2]
     xy = [0.75, 1.25]
     plt.plot(xy, [h, h], c = "black", lw = 0.75)
     plt.annotate(string("", round(ps[2], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
 
-    h = 0.4
+    h = hs[3]
     xy = [1.75, 2.25]
     plt.plot(xy, [h, h], c = "black", lw = 0.75)
     plt.annotate(string("", round(ps[3], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
 
-    h = 0.6
+    h = hs[4]
     xy = [2.75, 3.25]
     plt.plot(xy, [h, h], c = "black", lw = 0.75)
     plt.annotate(string("", round(ps[4], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
 
-    ylabel("Fraction of cells with more than \n $lim_exp Il12b mature mRNA counts ")
+    ylabel("Fraction of cells with more than \n $lim_exp $gene mRNA counts ")
 
 
     xlabel("Time after LPS (min)")
     
         squareplot()
     line075black()
+end
+
+
+function Il12b_Fexpcells_radwt2(;hs = [0.1, 0.2], u = 0.03)
+
+    pd = Pandas.DataFrame(summary1)
+     Seaborn.boxplot(data = pd, x= "Timepoint", y = "F_Expressing_exon", palette = ["darkgray", "red"], hue = "Genotype", showfliers = false, )
+   # Seaborn.stripplot(data = pd, x= "Timepoint", y = "BurstFraction", hue = "Rep",palette = "Greys", size = 5,jitter = 0.1, zorder = 1)
+    pretty_axes2()
+
+
+    h = hs[1]
+    
+
+    xy = [-0.25, 0.25]
+    plt.plot(xy, [h, h], c = "black", lw = 0.75)
+    plt.annotate(string("", round(ps[1], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
+
+    h = hs[2]
+    xy = [0.75, 1.25]
+    plt.plot(xy, [h, h], c = "black", lw = 0.75)
+    plt.annotate(string("", round(ps[2], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
+
+    ylabel("Fraction of cells with more than \n $lim_exp $gene mRNA counts ")
+
+
+    xlabel("Time after LPS (min)")
+    
+        squareplot()
+    line075black()
+end
+
+
+function Il12b_maturefig_expressing(ts; hs = [35, 70, 123, 130], ylim_= 150, u = 7)
+    t = CSV.read("TukeyHSD_"*gene*"_nexpressing.csv", DataFrames.DataFrame)
+    pd = Pandas.DataFrame(reps_expressingexon)
+     Seaborn.boxplot(data = pd, x= "Timepoint", y = "N_exon", palette = ["darkgray", "red"], hue = "Genotype", showfliers = false, )
+    #Seaborn.stripplot(data = pd, x= "Timepoint", y = "N_exon", hue = "Rep",palette = "Greys", size = 1.5,jitter = 0.45, zorder = 0)
+    pretty_axes2()
+    ylim(0, ylim_)
+
+    h = hs[1]
+
+    xy = [-0.25, 0.25]
+    plt.plot(xy, [h, h], c = "black", lw = 0.75)
+    plt.annotate(string("", round(t[t[!,"Column1"].== "WT_"*string(ts[1])*"-Rad21KO_"*string(ts[1]), "p adj"][1], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
+
+    h = hs[2]
+    xy = [0.75, 1.25]
+    plt.plot(xy, [h, h], c = "black", lw = 0.75)
+    plt.annotate(string("", round(t[t[!,"Column1"].== "WT_"*string(ts[2])*"-Rad21KO_"*string(ts[2]), "p adj"][1], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
+
+    h = hs[3]
+    xy = [1.75, 2.25]
+    plt.plot(xy, [h, h], c = "black", lw = 0.75)
+    plt.annotate(string("", round(t[t[!,"Column1"].== "WT_"*string(ts[3])*"-Rad21KO_"*string(ts[3]), "p adj"][1], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
+
+    h = hs[4]
+    xy = [2.75, 3.25]
+    plt.plot(xy, [h, h], c = "black", lw = 0.75)
+    plt.annotate(string("", round(t[t[!,"Column1"].== "WT_"*string(ts[4])*"-Rad21KO_"*string(ts[4]), "p adj"][1], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
+
+    
+    
+    ylabel("$gene mRNA counts \n in cells with more than $lim_exp")
+    xlabel("Time after LPS (min)")
+    
+    squareplot()
+    line075black()
+    
+    
+end
+
+function Il12b_maturefig_expressing2(ts; hs = [35, 70], ylim_= 150, u = 7)
+    t = CSV.read("TukeyHSD_"*gene*"_nexpressing.csv", DataFrames.DataFrame)
+    pd = Pandas.DataFrame(reps_expressingexon)
+     Seaborn.boxplot(data = pd, x= "Timepoint", y = "N_exon", palette = ["darkgray", "red"], hue = "Genotype", showfliers = false, )
+    #Seaborn.stripplot(data = pd, x= "Timepoint", y = "N_exon", hue = "Rep",palette = "Greys", size = 1.5,jitter = 0.45, zorder = 0)
+    pretty_axes2()
+    ylim(0, ylim_)
+
+    h = hs[1]
+
+    xy = [-0.25, 0.25]
+    plt.plot(xy, [h, h], c = "black", lw = 0.75)
+    plt.annotate(string("", round(t[t[!,"Column1"].== "WT_"*string(ts[1])*"-Rad21KO_"*string(ts[1]), "p adj"][1], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
+
+    h = hs[2]
+    xy = [0.75, 1.25]
+    plt.plot(xy, [h, h], c = "black", lw = 0.75)
+    plt.annotate(string("", round(t[t[!,"Column1"].== "WT_"*string(ts[2])*"-Rad21KO_"*string(ts[2]), "p adj"][1], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
+
+   
+    
+    ylabel("$gene mRNA counts \n in cells with more than $lim_exp")
+    xlabel("Time after LPS (min)")
+    
+    squareplot()
+    line075black()
+    
+    
 end
 
