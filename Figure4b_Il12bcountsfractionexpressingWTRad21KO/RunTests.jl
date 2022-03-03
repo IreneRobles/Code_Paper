@@ -1,7 +1,7 @@
 REPS = REPS = [tb[tb[!,:Rep].== ii, :] for ii in [1, 2, 3, 4]]
 reps = vcat(REPS...)
 reps_expressingexon = sort(reps[reps[!,:N_exon].> lim_exp, :], "Genotype", rev = true)
-
+name = "TukeyHSD_"*gene*"_nexpressing.csv"
 t = R"""
 tb <- $reps_expressingexon
 tb$Timepoint <- as.factor(tb$Timepoint)
@@ -13,17 +13,16 @@ s <- tb
 aov.s = aov(N_exon ~ Sample + Rep  ,data=s)  #do the analysis of variance
 test <- TukeyHSD(aov.s)
 test$Sample
-write.csv(test$Sample,"TukeyHSD_Il12b_mature_nexpressing.csv")
+write.csv(test$Sample,$name)
 t = test$Sample
 """
 
 t = CSV.read("TukeyHSD_Il12b_mature_nexpressing.csv", DataFrames.DataFrame)
 
-
 summary1 = mean_burst_size_and_burst_fraction(REPS..., limit = lim_exp)
 summary1 = summary1
 summary1[!,:F_Expressing_exon] = summary1[!,:N_Expressing_exon] ./summary1[!,:n_cells]
-CSV.write("Il12b_sumary_WTRad21KO.csv", summary1)
+CSV.write(gene*"_sumary_WTRad21KO.csv", summary1)
 
 
 
@@ -43,10 +42,7 @@ function do_mantelhaen(df, comp1, comp2)
 
     
 test = R"""
-library("psych")
-library("vcd")
-library("DescTools")
-library("rcompanion")
+
 library("dplyr")
 
 tb = $tb
@@ -70,8 +66,5 @@ mantelhaen.test(Data.xtabs)
 return test[3][1],test[5][1]
 end
 
-ps = adjust([do_mantelhaen(summary1, "WT_0", "Rad21KO_0")[1],
-    do_mantelhaen(summary1, "WT_60", "Rad21KO_60")[1],
-    do_mantelhaen(summary1, "WT_90", "Rad21KO_90")[1],
-    do_mantelhaen(summary1, "WT_120", "Rad21KO_120")[1]], Bonferroni())
+
    
