@@ -35,6 +35,8 @@ function figure_de_gro_cor_induciblegenes(de, gro, pref1, pref2)
     tb = tb[tb[!,"DE1"].!=split(pref1)[1]*":ns", :]
     sort!(tb, "DE", rev = true)
     
+    CSV.write("../SourceData/Fig4a.csv", tb)
+    
     pd = Pandas.DataFrame(tb)
     
     Seaborn.lmplot(data = pd, x = "log2FoldChange", y = "log2FoldChange_1", hue = "DE", fit_reg = false, scatter_kws=Dict("alpha"=>0.5),
