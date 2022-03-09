@@ -29,7 +29,7 @@ function Il12b_maturefig_expressing()
     plt.annotate(string("", round(t[t[!,"Column1"].== "WT_120-Rad21KO_120", "p adj"][1], sigdigits = 2)), xy = [Statistics.mean(xy), h + u], ha = "center", va = "center")
 
     
-    CSV.write("../SourceData/Figure4b_Il12b_nexonexpressing.csv",reps_expressingexon[!,[:Image_Cell, :Genotype, :Timepoint, :N_exon, :Rep]]  )
+    CSV.write("../SourceData/Fig4b_Il12b_nexonexpressing.csv",reps_expressingexon[!,[:Image_Cell, :Genotype, :Timepoint, :N_exon, :Rep]]  )
     ylabel("$gene mRNA counts \n in cells with more than $lim_exp")
     xlabel("Time after LPS (min)")
     
@@ -266,7 +266,7 @@ function Il12b_Fexpcells_radwt(;hs = [0.1, 0.2, 0.4, 0.6], u = 0.03)
 
     ylabel("Fraction of cells with more than \n $lim_exp $gene mRNA counts ")
 
-    CSV.write("../SourceData/Figure4b_fractionexpressing.csv",summary1[!,[:Genotype, :Timepoint, :F_Expressing_exon, :Rep]] )
+    CSV.write("../SourceData/Fig4b_Il12b_fractionexpressing.csv",summary1[!,[:Genotype, :Timepoint, :F_Expressing_exon, :Rep]] )
     xlabel("Time after LPS (min)")
     
         squareplot()
