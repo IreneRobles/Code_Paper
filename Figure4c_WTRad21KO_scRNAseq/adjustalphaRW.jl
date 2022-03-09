@@ -1,4 +1,3 @@
-
 sce = SingleCellExperiment.fit_mu_std_alpha(sce, splitdataby = :Sample, assay = "lnCPMplus1")
 bhattgenes= DataFrames.DataFrame(
     "GeneID" => Bhatt2012.inducible_genes_figure3()[!,:GeneSymbol], 
@@ -77,6 +76,8 @@ pd = Pandas.melt(pd, value_vars  = ["WT_UT__mu", "RAD21_UT__mu" ,"WT_2H__mu", "R
 pd["Time after LPS (h)"] = [replace(replace(replace(split(ii, "_")[2], "UT" => 0), "2H" => 2), "8H" => 8) for ii in pd["variable"]]
 pd["Genotype"] = [replace(split(ii, "_")[1], "RAD21" =>"Rad21KO") for ii in pd["variable"]]
 
+CSV.write("../SourceData/Fig4c_lnCPMplus1.csv",pd)
+
 Seaborn.boxplot(data = pd, y = y,x = "Time after LPS (h)", hue = "Genotype",showfliers = false,  palette = ["darkgray", "red"])
 pretty_axes2()
 
@@ -100,9 +101,13 @@ subplot(1,2,1)
 y = "Fraction of cells \n with transcripts detected"
 pd = Pandas.DataFrame(sort!(sceBhatt, :Class))
 
+
+
 pd = Pandas.melt(pd, value_vars  = ["WT_UT__alpha", "RAD21_UT__alpha" ,"WT_2H__alpha", "RAD21_2H__alpha", "WT_8H__alpha", "RAD21_8H__alpha"], value_name = y, id_vars = ["GeneID","Class"] )
 pd["Time after LPS (h)"] = [replace(replace(replace(split(ii, "_")[2], "UT" => 0), "2H" => 2), "8H" => 8) for ii in pd["variable"]]
 pd["Genotype"] = [replace(split(ii, "_")[1], "RAD21" =>"Rad21KO") for ii in pd["variable"]]
+
+CSV.write("../SourceData/Fig4c_fractions.csv",pd)
 
 Seaborn.boxplot(data = pd, y = y,x = "Time after LPS (h)", hue = "Genotype",showfliers = false, palette = ["darkgray", "red"])
 pretty_axes2()
@@ -125,4 +130,3 @@ for line in ax.get_lines()
 end
 plt.tight_layout()
 savefigwithtext("scRNAseq_mu_alpha_bhattgenes_WTRad21KO_percent"*string(alpha*100)*".svg")
-
