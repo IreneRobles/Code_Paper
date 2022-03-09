@@ -56,3 +56,5 @@ tb[!,"log2_BF_Enhancer"] = log2.(tb[!,"BF_Enhancer"])
 tb[!,"log2_BF_Gene"] = log2.(tb[!,"BF_Gene"]) 
 
 CSV.write("EnhancerGeneBF.csv", tb)
+
+CSV.write("../SourceData/Fig6abc_EnhancerGeneBF.csv", tb)

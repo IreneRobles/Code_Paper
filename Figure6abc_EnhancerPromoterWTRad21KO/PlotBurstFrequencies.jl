@@ -382,9 +382,9 @@ add_tests3(tests, [0.22, 0.35].*n, u = 0.02*n)
 
 
 
-subplot(r, c, 15)
+#subplot(r, c, 15)
 
-plot_BFGene_Enhancer(genefreq_gene, genefreq_enh)
+#plot_BFGene_Enhancer(genefreq_gene, genefreq_enh)
 
 
 plt.tight_layout()
