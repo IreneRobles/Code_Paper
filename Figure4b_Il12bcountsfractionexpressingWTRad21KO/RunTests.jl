@@ -1,7 +1,7 @@
 REPS = REPS = [tb[tb[!,:Rep].== ii, :] for ii in [1, 2, 3, 4]]
 reps = vcat(REPS...)
 reps_expressingexon = sort(reps[reps[!,:N_exon].> lim_exp, :], "Genotype", rev = true)
-name = "TukeyHSD_"*gene*"_nexpressing_.csv"
+name = "TukeyHSD_"*gene*"_nexpressing.csv"
 t = R"""
 tb <- $reps_expressingexon
 tb$Timepoint <- as.factor(tb$Timepoint)
