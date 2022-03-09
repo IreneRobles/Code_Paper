@@ -345,9 +345,9 @@ function Il12b_maturefig_expressing(ts; hs = [35, 70, 123, 130], ylim_= 150, u =
 end
 
 function Il12b_maturefig_expressing2(ts; hs = [35, 70], ylim_= 150, u = 7)
-    t = CSV.read("TukeyHSD_"*gene*"_nexpressing.csv", DataFrames.DataFrame)
-    pd = Pandas.DataFrame(t)
-     Seaborn.boxplot(data = pd, x= "Timepoint", y = "N_exon", palette = ["darkgray", "red"], hue = "Genotype", showfliers = false, )
+    #t = CSV.read("TukeyHSD_"*gene*"_nexpressing.csv", DataFrames.DataFrame)
+    pd = Pandas.DataFrame(reps_expressingexon)
+    Seaborn.boxplot(data = pd, x= "Timepoint", y = "N_exon", palette = ["darkgray", "red"], hue = "Genotype", showfliers = false, )
     #Seaborn.stripplot(data = pd, x= "Timepoint", y = "N_exon", hue = "Rep",palette = "Greys", size = 1.5,jitter = 0.45, zorder = 0)
     pretty_axes2()
     ylim(0, ylim_)
