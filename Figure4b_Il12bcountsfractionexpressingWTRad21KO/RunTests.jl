@@ -1,7 +1,7 @@
 REPS = REPS = [tb[tb[!,:Rep].== ii, :] for ii in [1, 2, 3, 4]]
 reps = vcat(REPS...)
 reps_expressingexon = sort(reps[reps[!,:N_exon].> lim_exp, :], "Genotype", rev = true)
-name = "TukeyHSD_"*gene*"_nexpressing.csv"
+name = "TukeyHSD_"*gene*"_nexpressing_.csv"
 t = R"""
 tb <- $reps_expressingexon
 tb$Timepoint <- as.factor(tb$Timepoint)
@@ -17,12 +17,12 @@ write.csv(test$Sample,$name)
 t = test$Sample
 """
 
-t = CSV.read("TukeyHSD_Il12b_mature_nexpressing.csv", DataFrames.DataFrame)
+t = CSV.read(name, DataFrames.DataFrame)
 
 summary1 = mean_burst_size_and_burst_fraction(REPS..., limit = lim_exp)
 summary1 = summary1
 summary1[!,:F_Expressing_exon] = summary1[!,:N_Expressing_exon] ./summary1[!,:n_cells]
-CSV.write(gene*"_sumary_WTRad21KO.csv", summary1)
+CSV.write(gene*"_summary_WTRad21KO.csv", summary1)
 
 
 
