@@ -159,6 +159,7 @@ function final_figure_rad21(ddf;
     
 
      pd = Pandas.DataFrame(ddf)
+    CSV.write("../SourceData/SupFig5a.csv", ddf)
     
     pd[string(col)] = [100 - ii*100 for ii in pd[string(col)]]
     
