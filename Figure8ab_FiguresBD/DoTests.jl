@@ -4,6 +4,7 @@
 
 BFs_all_gene_il = calculatesumary_byrep(il12b, limit = 1)
 CSV.write("Il12b_BD_summary.csv", BFs_all_gene_il)
+CSV.write("../SourceData/Fig8_Il12b_BF.csv", BFs_all_gene_il)
 
 TEST_gene_il = BF_test(BFs_all_gene_il, "Il12b_intron_BD", :N_TSS, [
         ["Rad21KO_DMSO", "WT_DMSO"],
@@ -22,6 +23,7 @@ TEST_gene_il = BF_test(BFs_all_gene_il, "Il12b_intron_BD", :N_TSS, [
 
 BFs_all_gene_hss1 = calculatesumary_byrep(hss1, limit = hss1lim)
 CSV.write("HSS1_BD_summary.csv", BFs_all_gene_hss1)
+CSV.write("../SourceData/Fig8_Il12bHSS1_BF.csv", BFs_all_gene_hss1)
 
 TEST_gene_hss1 = BF_test(BFs_all_gene_hss1, "HSS1_BD", :N_TSS, [
         ["Rad21KO_DMSO", "WT_DMSO"],
@@ -40,6 +42,7 @@ TEST_gene_hss1 = BF_test(BFs_all_gene_hss1, "HSS1_BD", :N_TSS, [
 
 BFs_all_gene_egr2 = calculatesumary_byrep(egr2, limit = 1)
 CSV.write("Egr2_BD_summary.csv", BFs_all_gene_egr2)
+CSV.write("../SourceData/Fig8_Egr2_BF.csv", BFs_all_gene_egr2)
 
 TEST_gene_egr2 = BF_test(BFs_all_gene_egr2, "Egr2_intron_BD", :N_TSS, [
         ["Rad21KO_DMSO", "WT_DMSO"],
@@ -58,6 +61,7 @@ TEST_gene_egr2 = BF_test(BFs_all_gene_egr2, "Egr2_intron_BD", :N_TSS, [
 
 BFs_all_gene_egr2enh = calculatesumary_byrep(egr2enh, limit = 1)
 CSV.write("Egr2enh_BD_summary.csv", BFs_all_gene_egr2enh)
+CSV.write("../SourceData/Fig8_Egr2Enh_BF.csv", BFs_all_gene_egr2enh)
 
 TEST_gene_egr2enh = BF_test(BFs_all_gene_egr2enh, "Egr2_enh_BD", :N_TSS, [
         ["Rad21KO_DMSO", "WT_DMSO"],
@@ -77,6 +81,7 @@ TEST_gene_egr2enh = BF_test(BFs_all_gene_egr2enh, "Egr2_enh_BD", :N_TSS, [
 # Burst size tests
 
 bs_il12b= tss_data(il12b; limit = 1)
+CSV.write("../SourceData/Fig8_Il12b_BS.csv", bs_il12b)
 filename = "Il12b_intron_BD"*"_BS_Test.csv"
 R"""
 tb <- $bs_il12b
@@ -92,6 +97,7 @@ bs_il12b_test = CSV.read(filename, DataFrames.DataFrame)
 
 
 bs_hss1= tss_data(hss1; limit = hss1lim)
+CSV.write("../SourceData/Fig8_Il12bHSS1_BS.csv", bs_hss1)
 filename = "HSS1_BD"*"_BS_Test.csv"
 R"""
 tb <- $bs_hss1
@@ -108,6 +114,7 @@ bs_hss1_test = CSV.read(filename, DataFrames.DataFrame)
 
 
 bs_egr2= tss_data(egr2; limit = 1)
+CSV.write("../SourceData/Fig8_Egr2_BS.csv", bs_egr2)
 filename = "Egr2_intron_BD"*"_BS_Test.csv"
 R"""
 tb <- $bs_egr2
@@ -122,6 +129,7 @@ write.csv(a, $filename)
 bs_egr2_test = CSV.read(filename, DataFrames.DataFrame)
 
 bs_egr2enh= tss_data(egr2enh; limit = 1)
+CSV.write("../SourceData/Fig8_Egr2Enh_BS.csv", bs_egr2enh)
 filename = "Egr2_enh_BD"*"_BS_Test.csv"
 R"""
 tb <- $bs_egr2enh
