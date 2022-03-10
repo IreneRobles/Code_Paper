@@ -139,6 +139,8 @@ ylabel("Burst Size")
     ax = gca()
 ax.set_aspect(1.0/ax.get_data_ratio(), adjustable="box")
     line075black()
+    
+    CSV.write("../SourceData/SupFig2_BS_"*gene*".csv", DataFrames.DataFrame(pd))
 
     return df
     

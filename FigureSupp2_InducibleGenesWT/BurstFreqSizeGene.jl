@@ -14,3 +14,4 @@ bf = calculate_bf_by_rep(get_genedata("Il12b_intron"), "TSS", "Il12b_intron", li
 BF["Il12b_intron"] = bf
 BFs = join_in_all_common_columns([BF[key] for key in keys(BF)]...)
 CSV.write("BurstFrequencies_Genes.csv", BFs)
+CSV.write("../SourceData/SupFig2_BF.csv", BFs)
