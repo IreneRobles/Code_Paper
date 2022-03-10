@@ -26,7 +26,9 @@ function figure_de_gro_cor(de, gro, pref1, pref2)
     end
     
     tb[!,"DE1"] = tbde1
+    tb[!,"DE1_comp"] = [pref1 for ii in 1:nrow(tb)]
     tb[!,"DE2"] = tbde2
+    tb[!,"DE2_comp"] = [pref2 for ii in 1:nrow(tb)]
     tb[!,"DE"] = tbde1.*" ".*tbde2
 
     name  = replace(pref1, " "=>"")*"_"*replace(pref2, " "=>"")
@@ -34,6 +36,8 @@ function figure_de_gro_cor(de, gro, pref1, pref2)
     tb = tb[tb[!,"DE"].!=split(pref1)[1]*":ns".*" ".*split(pref2)[1]*":ns", :]
     tb = tb[tb[!,"DE1"].!=split(pref1)[1]*":ns", :]
     sort!(tb, "DE", rev = true)
+    
+    CSV.write("../SourceData/SupFig1a.csv", tb[!,[:EnsemblID, :GeneSymbol, :log2FoldChange, :log2FoldChange_1, :padj, :padj_1, :DE ]])
     
     pd = Pandas.DataFrame(tb)
     
