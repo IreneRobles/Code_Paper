@@ -93,6 +93,7 @@ function plot_category(goterm)
     n = 24
     file[!,Symbol("-log10(overrepresented_padj)")] = [-log10(i) for i in file[!,:over_represented_padj]]
     pd = Pandas.DataFrame(file[1:n, :])
+    CSV.write("../SourceData/SupFig7_"*replace(title_, " "=>"_")*".csv",file[1:n, :])
     barplot(x = "-log10(overrepresented_padj)", y="Test", data=pd, palette="Blues_d")
     
     plot([-log10(0.05), -log10(0.05)], [ -0.5 , n - 0.5 ], linewidth=2, c = "red")
