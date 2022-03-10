@@ -20,6 +20,8 @@ function show_distances2(genefolder,nascent,ehn,suff; limit = 4, limit_gene = 1,
     
     pairs = pairs[parse.(Float64,pairs[!,:locus1_Gene_Enh]).< limit, :]
     sort!(pairs, [:Genotype], rev = true)
+    
+    CSV.write("../SourceData/Fig7"*string("_",nascent, "_",ehn)*".csv", pairs)
 
 
     # generate the samples
