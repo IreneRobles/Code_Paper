@@ -3,6 +3,7 @@
 function Il12b_maturefig(gen)
     reps = CSV.read("../CompleteSets/GeneData/Il12b_intron_original.csv", DataFrames.DataFrame);
     reps = reps[reps[!,:Genotype].==gen, :]
+    CSV.write("../SourceData/SupFig1d.csv", reps)
 
     pd = Pandas.DataFrame(reps)
     Seaborn.boxplot(data = pd, x= "Timepoint", y = "N_exon",palette = "Blues", showfliers = false, )
