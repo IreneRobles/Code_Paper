@@ -165,6 +165,9 @@ function final_figure_rad21(ddf;
     
     
      Seaborn.barplot(x="Genotype", y=string(col), data=pd, palette =  "Reds", order = ["Rad21lox", "Rad21KO_5Days","Rad21KO_6Days", "Rad21KO_7Days"],)
+    Seaborn.stripplot(x="Genotype", y=string(col), data=pd, palette =  "Greys", hue = "Rep", order = ["Rad21lox", "Rad21KO_5Days","Rad21KO_6Days", "Rad21KO_7Days"],)
+
+    
     
     xs = collect(0:length(unique(ddf[!,:Genotype]))-1)
     ys = [maximum(pd[string(col)])+maximum(pd[string(col)])*0.2*i for i in xs]
