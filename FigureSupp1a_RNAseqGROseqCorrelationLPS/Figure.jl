@@ -59,7 +59,11 @@ function figure_de_gro_cor(de, gro, pref1, pref2)
     ylabel("log2FC \n"*pref2)
     legend_removal()
     x = tb[!,"log2FoldChange"]; y = tb[!,"log2FoldChange_1"]
-    print(R"cor.test($x,$y)")
+    
+    t = R"cor.test($x,$y)"
+    print(t)
+    println(t[3])
+
     squareplot()
     fname = name*".svg"
     savefigwithtext(fname)
